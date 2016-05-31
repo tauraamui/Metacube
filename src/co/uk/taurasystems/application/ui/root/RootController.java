@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import co.uk.taurasystems.application.ui.newdialog.NewDialogController;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -18,6 +19,8 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 public class RootController implements Initializable {
+	
+	private NewDialogController newDialogController = new NewDialogController();
 
 	@FXML
 	private MenuBar menuBar;
@@ -47,25 +50,6 @@ public class RootController implements Initializable {
 //		assert menuBar != null : "fx:id=\"menuBar\"was not injected: check your FXML file 'Root.fxml'.";
 //		assert menuCloseButton != null : "fx:id=\"menuCloseButton\"was not injected: check your FXML file 'Root.fxml'.";
 		menuCloseButton.setOnAction(e -> System.exit(0));
-		menuNewButton.setOnAction(e -> showNewDialog());
-		menuAboutButton.setOnAction(e -> System.out.println("Testing"));
-	}
-	
-	private void showNewDialog() {
-		FXMLLoader newDialogLoader = new FXMLLoader();
-		newDialogLoader.setLocation(getClass().getResource("NewDialog.fxml"));
-		Parent newDialog;
-		try {
-			newDialog = (Parent)newDialogLoader.load();
-		} catch (IOException e) {
-			e.printStackTrace();
-			return;
-		}
-		Stage stage = new Stage();
-		stage.initModality(Modality.APPLICATION_MODAL);
-        stage.initStyle(StageStyle.UNDECORATED);
-        stage.setTitle("New...");
-        stage.setScene(new Scene(newDialog));
-        stage.show();
+		menuNewButton.setOnAction(e -> newDialogController.showWindow());
 	}
 }
