@@ -13,12 +13,20 @@ import javafx.scene.control.Button;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class NewDialogController implements Initializable {
+public class NewDialogController {
 	
-	private Stage dialog = new Stage();;
+	private Stage dialog = new Stage();
 	
 	@FXML
 	private Button cancelButton;
+	
+	public NewDialogController() {
+		init();
+	}
+	
+	private void init() {
+		cancelButton.setOnAction(e -> dialog.close());
+	}
 	
 	public void showWindow() {
 		FXMLLoader newDialogLoader = new FXMLLoader();
@@ -36,10 +44,5 @@ public class NewDialogController implements Initializable {
         dialog.setScene(new Scene(newDialog));
         dialog.sizeToScene();
         dialog.show();
-	}
-
-	@Override
-	public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
-		cancelButton.setOnAction(e -> dialog.close());
 	}
 }
