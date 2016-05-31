@@ -48,6 +48,7 @@ public class RootController implements Initializable {
 //		assert menuCloseButton != null : "fx:id=\"menuCloseButton\"was not injected: check your FXML file 'Root.fxml'.";
 		menuCloseButton.setOnAction(e -> System.exit(0));
 		menuNewButton.setOnAction(e -> showNewDialog());
+		menuAboutButton.setOnAction(e -> System.out.println("Testing"));
 	}
 	
 	private void showNewDialog() {
