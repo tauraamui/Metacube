@@ -45,6 +45,7 @@ public class Metacube extends Application {
 			dialog.setResizable(false);
 			dialog.setTitle("New...");
 			dialog.sizeToScene();
+			//give this dialog instance to the NewDialogController
 			((NewDialogController)fxmlLoader.getController()).setStage(dialog);
 			dialog.show();
 		} catch (IOException e) {
