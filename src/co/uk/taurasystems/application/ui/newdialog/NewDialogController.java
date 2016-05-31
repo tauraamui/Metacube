@@ -13,36 +13,13 @@ import javafx.scene.control.Button;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class NewDialogController {
-	
-	private Stage dialog = new Stage();
+public class NewDialogController implements Initializable {
 	
 	@FXML
 	private Button cancelButton;
 	
-	public NewDialogController() {
-		init();
-	}
-	
-	private void init() {
-		cancelButton.setOnAction(e -> dialog.close());
-	}
-	
-	public void showWindow() {
-		FXMLLoader newDialogLoader = new FXMLLoader();
-		newDialogLoader.setLocation(getClass().getResource("NewDialog.fxml"));
-		Parent newDialog;
-		try {
-			newDialog = (Parent)newDialogLoader.load();
-		} catch (IOException e) {
-			e.printStackTrace();
-			return;
-		}
-		dialog.initModality(Modality.APPLICATION_MODAL);
-		dialog.setResizable(false);
-        dialog.setTitle("New...");
-        dialog.setScene(new Scene(newDialog));
-        dialog.sizeToScene();
-        dialog.show();
+	@Override
+	public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
+		
 	}
 }
