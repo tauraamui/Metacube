@@ -17,8 +17,6 @@ import javafx.stage.Stage;
 
 public class RootController implements Initializable {
 
-	private NewDialogController newDialogController = new NewDialogController();
-
 	@FXML
 	private MenuBar menuBar;
 
