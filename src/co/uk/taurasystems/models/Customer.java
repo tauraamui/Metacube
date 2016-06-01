@@ -18,7 +18,7 @@ public class Customer {
 	public void setSurname(String surname) {
 		this.surname = surname;
 	}
-	public String getTelephoneNumebr() {
+	public String getPhoneNumber() {
 		return phoneNumber;
 	}
 	public void setPhoneNumber(String phoneNumber) {

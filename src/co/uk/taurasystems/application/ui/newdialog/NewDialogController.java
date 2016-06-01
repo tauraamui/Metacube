@@ -1,6 +1,11 @@
 package co.uk.taurasystems.application.ui.newdialog;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.net.URL;
+import java.util.Properties;
 import java.util.ResourceBundle;
 
 import co.uk.taurasystems.models.Customer;
@@ -42,6 +47,9 @@ public class NewDialogController implements Initializable {
 		customer.setFirstName(firstNameTextField.getText());
 		customer.setSurname(surnameTextField.getText());
 		customer.setPhoneNumber(phoneNumberTextField.getText());
-		System.out.println(customer.getFirstName());
+		Properties customerProperties = new Properties();
+		customerProperties.setProperty("customer_firstname", customer.getFirstName());
+		customerProperties.setProperty("customer_surname", customer.getSurname());
+		customerProperties.setProperty("customer_phonenumber", customer.getPhoneNumber());
 	}
 }
