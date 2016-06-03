@@ -1,4 +1,4 @@
-package co.uk.taurasystems.models;
+package co.uk.taurasystems.db.models;
 
 public class Customer {
 

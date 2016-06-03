@@ -3,10 +3,11 @@ package co.uk.taurasystems.application;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Properties;
 
 import co.uk.taurasystems.application.ui.newdialog.NewDialogController;
+import co.uk.taurasystems.db.H2Database;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -18,10 +19,11 @@ import javafx.stage.Stage;
 public class Metacube extends Application {
 
 	private static Stage primaryStage;
+	public static Connection database;
 
 	@Override
 	public void start(Stage primaryStage) {
-		this.primaryStage = primaryStage;
+		Metacube.primaryStage = primaryStage;
 		loadMainWindow();
 	}
 
@@ -32,7 +34,6 @@ public class Metacube extends Application {
 			primaryStage.setTitle("Metacube");
 			primaryStage.setScene(scene);
 			primaryStage.setMaximized(true);
-			Properties properties = new Properties();
 			primaryStage.show();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -59,15 +60,15 @@ public class Metacube extends Application {
 		}
 	}
 
-	public static void initDatabaseConnection() {
+	public static Connection initDatabaseConnection() {
 		try {
 			Class.forName("org.h2.Driver");
 			String url = "jdbc:h2:~/Metacube";
-			String user = "sa";
-			String pwds = "849353475893479768347";
-			Connection conn = DriverManager.getConnection(url, user, pwds);
+			String username = "sa";
+			String password = "849353475893479768347";
+			Connection connection = DriverManager.getConnection(url, username, password);
 			// add application code here
-			conn.close();
+			return connection;
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -75,10 +76,32 @@ public class Metacube extends Application {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return null;
 	}
 
 	public static void main(String[] args) {
-		initDatabaseConnection();
+		H2Database.setDriverClassName("org.h2.Driver");
+		H2Database.setURL("jdbc:h2:~/Metacube");
+		H2Database.setUseraname("sa");
+		H2Database.setPassword("849353475893479768347");
+		H2Database.initConnection();
+		/*database = initDatabaseConnection();
+		try {
+			database.createStatement().executeUpdate("INSERT INTO customer(firstname, surname, phonenumber) values('Java', 'Bean', '93480238932')");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			ResultSet results = database.createStatement().executeQuery("SELECT * FROM customer");
+			while (results.next()) {
+				String firstname = (String)results.getObject("FIRSTNAME");
+				System.out.println(firstname);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}*/
 		launch(args);
 	}
 }

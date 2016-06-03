@@ -1,14 +1,12 @@
 package co.uk.taurasystems.application.ui.newdialog;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.net.URL;
-import java.util.Properties;
 import java.util.ResourceBundle;
 
-import co.uk.taurasystems.models.Customer;
+import co.uk.taurasystems.db.H2Database;
+import co.uk.taurasystems.db.H2InsertStatement;
+import co.uk.taurasystems.db.H2Statement;
+import co.uk.taurasystems.db.models.Customer;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -47,9 +45,11 @@ public class NewDialogController implements Initializable {
 		customer.setFirstName(firstNameTextField.getText());
 		customer.setSurname(surnameTextField.getText());
 		customer.setPhoneNumber(phoneNumberTextField.getText());
-		Properties customerProperties = new Properties();
-		customerProperties.setProperty("customer_firstname", customer.getFirstName());
-		customerProperties.setProperty("customer_surname", customer.getSurname());
-		customerProperties.setProperty("customer_phonenumber", customer.getPhoneNumber());
+		H2InsertStatement insert = new H2InsertStatement(H2Statement.Type.INSERT, "customer",
+															   new String[]{"firstname", "surname", "phonenumber"},
+															   new String[]{"'"+customer.getFirstName()+"'", "'"+
+															   customer.getSurname()+"'", "'"+customer.getPhoneNumber()+"'"});
+		H2Database.executeUpdate(insert);
+		newDialogStage.close();
 	}
 }
