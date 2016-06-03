@@ -54,6 +54,6 @@ public class NewDialogController implements Initializable {
 		H2Database.executeUpdate(insert);
 		newDialogStage.close();
 		Metacube.rootController.openCustomerTab(customer);
-		Metacube.rootController.addCustomerToList(customer);
+		Metacube.rootController.updateCustomerList();
 	}
 }

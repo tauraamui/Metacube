@@ -1,13 +1,12 @@
 package co.uk.taurasystems.application.ui.root;
 
 import java.net.URL;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import co.uk.taurasystems.application.Metacube;
-import co.uk.taurasystems.db.H2Database;
 import co.uk.taurasystems.db.models.Customer;
+import co.uk.taurasystems.db.models.CustomerController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -20,27 +19,19 @@ import javafx.scene.control.TabPane;
 
 public class RootController implements Initializable {
 
-	@FXML
-	private MenuBar menuBar;
+	@FXML private MenuBar menuBar;
 
 	//------MENU LISTS-------
-	@FXML
-	private MenuItem fileMenuList;
-	@FXML
-	private MenuItem editMenuList;
-	@FXML
-	private MenuItem menuHelpList;
+	@FXML private MenuItem fileMenuList;
+	@FXML private MenuItem editMenuList;
+	@FXML private MenuItem menuHelpList;
 	//------MENU LISTS-------
 
 	//------MENU BUTTONS-----
-	@FXML
-	private MenuItem menuNewButton;
-	@FXML
-	private MenuItem menuCloseButton;
-	@FXML
-	private MenuItem menuDeleteButton;
-	@FXML
-	private MenuItem menuAboutButton;
+	@FXML private MenuItem menuNewButton;
+	@FXML private MenuItem menuCloseButton;
+	@FXML private MenuItem menuDeleteButton;
+	@FXML private MenuItem menuAboutButton;
 	//------MENU BUTTONS-----
 	
 	@FXML private TabPane tabbedPane;
@@ -55,28 +46,19 @@ public class RootController implements Initializable {
 		menuCloseButton.setOnAction(e -> System.exit(0));
 		menuNewButton.setOnAction(e -> Metacube.loadNewDialog());
 
-		populateCustomerList();
+		updateCustomerList();
 	}
 	
 	public void openCustomerTab(Customer customer) {
 		tabbedPane.getTabs().add(new Tab(customer.getFirstName()+" "+customer.getSurname()));
 	}
 	
-	public void addCustomerToList(Customer customer) {
-		customerListItems.add(customer.getFirstName()+" "+customer.getSurname());
-	}
-	
-	private void populateCustomerList() {
-		try {
-			ResultSet results = H2Database.getConnection().createStatement().executeQuery("SELECT * FROM customer");
-			while (results.next()) {
-				String firstname = (String)results.getObject("firstname");
-				String surname = (String)results.getObject("surname");
-				customerListItems.add(firstname + " " + surname);
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+	public void updateCustomerList() {
+		ArrayList<Customer> customerList = CustomerController.getAllCustomers();
+		if (customerList == null) return;
+		customerListItems.clear();
+		for (Customer customer : customerList) {
+			customerListItems.add(customer.getFirstName()+" "+customer.getSurname());
 		}
 	}
 }
