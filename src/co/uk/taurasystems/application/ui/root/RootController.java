@@ -37,6 +37,7 @@ public class RootController implements Initializable {
 	@FXML private TabPane tabbedPane;
 	@FXML private ListView<String> customerListView;
 	final ObservableList<String> customerListItems = FXCollections.observableArrayList();
+	private ArrayList<Customer> customerList;
 
 	@Override
 	public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
@@ -54,11 +55,12 @@ public class RootController implements Initializable {
 	}
 	
 	public void updateCustomerList() {
-		ArrayList<Customer> customerList = CustomerController.getAllCustomers();
+		customerList = CustomerController.getAllCustomers();
 		if (customerList == null) return;
 		customerListItems.clear();
 		for (Customer customer : customerList) {
 			customerListItems.add(customer.getFirstName()+" "+customer.getSurname());
+			System.out.println(customer.getID());
 		}
 	}
 }

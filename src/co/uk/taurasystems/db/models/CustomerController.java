@@ -14,10 +14,11 @@ public class CustomerController {
 			ResultSet results = H2Database.getConnection().createStatement().executeQuery("SELECT * FROM customer");
 			customers = new ArrayList<Customer>();
 			while (results.next()) {
+				long ID = (long)results.getObject("ID");
 				String firstname = (String)results.getObject("firstname");
 				String surname = (String)results.getObject("surname");
 				String phonenumber = (String)results.getObject("phonenumber");
-				customers.add(new Customer(firstname, surname, phonenumber));
+				customers.add(new Customer(ID, firstname, surname, phonenumber));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
