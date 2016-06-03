@@ -3,10 +3,10 @@ package co.uk.taurasystems.application;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import co.uk.taurasystems.application.ui.newdialog.NewDialogController;
+import co.uk.taurasystems.application.ui.root.RootController;
 import co.uk.taurasystems.db.H2Database;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -20,6 +20,8 @@ public class Metacube extends Application {
 
 	private static Stage primaryStage;
 	public static Connection database;
+	public static RootController rootController;
+	public static NewDialogController newDialogController;
 
 	@Override
 	public void start(Stage primaryStage) {
@@ -29,7 +31,9 @@ public class Metacube extends Application {
 
 	public static void loadMainWindow() {
 		try {
-			Parent root = FXMLLoader.load(Metacube.class.getResource("\\ui\\root\\Root.fxml"));
+			FXMLLoader fxmlLoader = new FXMLLoader(Metacube.class.getResource("\\ui\\root\\Root.fxml"));
+			Parent root = fxmlLoader.load();
+			rootController = (RootController)fxmlLoader.getController();
 			Scene scene = new Scene(root);
 			primaryStage.setTitle("Metacube");
 			primaryStage.setScene(scene);
@@ -52,6 +56,7 @@ public class Metacube extends Application {
 			dialog.setTitle("New...");
 			dialog.sizeToScene();
 			//give this dialog instance to the NewDialogController
+			newDialogController = (NewDialogController)fxmlLoader.getController();
 			((NewDialogController)fxmlLoader.getController()).setStage(dialog);
 			dialog.show();
 			dialog.centerOnScreen();

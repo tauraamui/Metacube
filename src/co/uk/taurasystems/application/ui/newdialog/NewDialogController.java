@@ -3,6 +3,8 @@ package co.uk.taurasystems.application.ui.newdialog;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import co.uk.taurasystems.application.Metacube;
+import co.uk.taurasystems.application.ui.root.RootController;
 import co.uk.taurasystems.db.H2Database;
 import co.uk.taurasystems.db.H2InsertStatement;
 import co.uk.taurasystems.db.H2Statement;
@@ -51,5 +53,7 @@ public class NewDialogController implements Initializable {
 															   customer.getSurname()+"'", "'"+customer.getPhoneNumber()+"'"});
 		H2Database.executeUpdate(insert);
 		newDialogStage.close();
+		Metacube.rootController.openCustomerTab(customer);
+		Metacube.rootController.addCustomerToList(customer);
 	}
 }
