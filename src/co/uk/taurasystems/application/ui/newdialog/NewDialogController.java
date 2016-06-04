@@ -47,7 +47,7 @@ public class NewDialogController implements Initializable {
 		customer.setFirstName(firstNameTextField.getText());
 		customer.setSurname(surnameTextField.getText());
 		customer.setPhoneNumber(phoneNumberTextField.getText());
-		H2InsertStatement insert = new H2InsertStatement(H2Statement.Type.INSERT, "customer",
+		H2InsertStatement insert = new H2InsertStatement("customer",
 															   new String[]{"firstname", "surname", "phonenumber"},
 															   new String[]{"'"+customer.getFirstName()+"'", "'"+
 															   customer.getSurname()+"'", "'"+customer.getPhoneNumber()+"'"});

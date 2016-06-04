@@ -2,13 +2,11 @@ package co.uk.taurasystems.db;
 
 public class H2InsertStatement extends H2Statement {
 
-	private Type type;
 	private String tableName;
 	private String[] columnNames;
 	private String[] values;
 	
-	public H2InsertStatement(Type type, String tableName, String[] columnNames, String[] values) {
-		this.type = type;
+	public H2InsertStatement(String tableName, String[] columnNames, String[] values) {
 		this.tableName = tableName;
 		this.columnNames = columnNames;
 		this.values = values;
