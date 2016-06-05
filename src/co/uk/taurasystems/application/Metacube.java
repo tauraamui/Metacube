@@ -65,25 +65,6 @@ public class Metacube extends Application {
 		}
 	}
 
-	public static Connection initDatabaseConnection() {
-		try {
-			Class.forName("org.h2.Driver");
-			String url = "jdbc:h2:~/Metacube";
-			String username = "sa";
-			String password = "849353475893479768347";
-			Connection connection = DriverManager.getConnection(url, username, password);
-			// add application code here
-			return connection;
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return null;
-	}
-
 	public static void main(String[] args) {
 		H2Database.setDriverClassName("org.h2.Driver");
 		H2Database.setURL("jdbc:h2:~/Metacube");
