@@ -60,7 +60,7 @@ public class RootController implements Initializable {
 	}
 	
 	public void openCustomerTab(Customer customer, boolean checkForAlreadyOpen) {
-		if (!checkForAlreadyOpen) openCustomerTab(customer);
+		if (!checkForAlreadyOpen) {openCustomerTab(customer); return;}
 		ObservableList<Tab> existingTabs = tabbedPane.getTabs();
 		for (Tab currentTab : existingTabs) {
 			if (currentTab instanceof CustomerTab) {
