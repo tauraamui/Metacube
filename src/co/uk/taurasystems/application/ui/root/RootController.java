@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import co.uk.taurasystems.application.Metacube;
+import co.uk.taurasystems.application.ui.root.tabpanes.CustomerTab;
 import co.uk.taurasystems.db.models.Customer;
 import co.uk.taurasystems.db.models.CustomerController;
 import javafx.collections.FXCollections;
@@ -16,6 +17,8 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 
 public class RootController implements Initializable {
 
@@ -46,12 +49,28 @@ public class RootController implements Initializable {
 		customerListView.setItems(customerListItems);
 		menuCloseButton.setOnAction(e -> System.exit(0));
 		menuNewButton.setOnAction(e -> Metacube.loadNewDialog());
-
+		customerListView.setOnMouseClicked(e -> onListDoubleClick(e));
 		updateCustomerList();
 	}
 	
 	public void openCustomerTab(Customer customer) {
-		tabbedPane.getTabs().add(new Tab(customer.getFirstName()+" "+customer.getSurname()));
+		CustomerTab customerTab = new CustomerTab(customer);
+		tabbedPane.getTabs().add(customerTab);
+		tabbedPane.getSelectionModel().select(customerTab);
+	}
+	
+	public void openCustomerTab(Customer customer, boolean checkForAlreadyOpen) {
+		if (!checkForAlreadyOpen) openCustomerTab(customer);
+		ObservableList<Tab> existingTabs = tabbedPane.getTabs();
+		for (Tab currentTab : existingTabs) {
+			if (currentTab instanceof CustomerTab) {
+				if (((CustomerTab) currentTab).getCustomer().getID() == customer.getID()) {
+					tabbedPane.getSelectionModel().select(currentTab);
+					return;
+				}
+			}
+		}
+		openCustomerTab(customer);
 	}
 	
 	public void updateCustomerList() {
@@ -60,7 +79,16 @@ public class RootController implements Initializable {
 		customerListItems.clear();
 		for (Customer customer : customerList) {
 			customerListItems.add(customer.getFirstName()+" "+customer.getSurname());
-			System.out.println(customer.getID());
+		}
+	}
+	
+	public void onListDoubleClick(MouseEvent e) {
+		if (e.getButton().equals(MouseButton.PRIMARY)) {
+			if (e.getClickCount() >= 2) {
+				int selectionIndex = customerListView.getSelectionModel().getSelectedIndex();
+				if (selectionIndex < 0 || selectionIndex > customerList.size()) return;
+				openCustomerTab(customerList.get(selectionIndex), true);
+			}
 		}
 	}
 }
