@@ -15,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.SplitPane;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.input.MouseButton;
@@ -39,6 +40,7 @@ public class RootController implements Initializable {
 	
 	@FXML private TabPane tabbedPane;
 	@FXML private ListView<String> customerListView;
+	@FXML private SplitPane splitPane;
 	final ObservableList<String> customerListItems = FXCollections.observableArrayList();
 	private ArrayList<Customer> customerList;
 
@@ -49,7 +51,7 @@ public class RootController implements Initializable {
 		customerListView.setItems(customerListItems);
 		menuCloseButton.setOnAction(e -> System.exit(0));
 		menuNewButton.setOnAction(e -> Metacube.loadNewDialog());
-		customerListView.setOnMouseClicked(e -> onListDoubleClick(e));
+		customerListView.setOnMouseClicked(e -> onListClick(e));
 		updateCustomerList();
 	}
 	
@@ -74,7 +76,7 @@ public class RootController implements Initializable {
 	}
 	
 	public void updateCustomerList() {
-		customerList = CustomerController.getAllCustomers();
+		customerList = CustomerController.sortAlphabetically(CustomerController.getAllCustomers());
 		if (customerList == null) return;
 		customerListItems.clear();
 		for (Customer customer : customerList) {
@@ -82,8 +84,9 @@ public class RootController implements Initializable {
 		}
 	}
 	
-	public void onListDoubleClick(MouseEvent e) {
+	public void onListClick(MouseEvent e) {
 		if (e.getButton().equals(MouseButton.PRIMARY)) {
+			//if double clicked
 			if (e.getClickCount() >= 2) {
 				int selectionIndex = customerListView.getSelectionModel().getSelectedIndex();
 				if (selectionIndex < 0 || selectionIndex > customerList.size()) return;
