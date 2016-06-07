@@ -1,12 +1,11 @@
 package co.uk.taurasystems.application.ui.newdialog;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import co.uk.taurasystems.application.Metacube;
-import co.uk.taurasystems.application.ui.root.RootController;
 import co.uk.taurasystems.db.H2Database;
-import co.uk.taurasystems.db.H2InsertStatement;
 import co.uk.taurasystems.db.H2Statement;
 import co.uk.taurasystems.db.models.Customer;
 import javafx.fxml.FXML;
@@ -47,11 +46,11 @@ public class NewDialogController implements Initializable {
 		customer.setFirstName(firstNameTextField.getText());
 		customer.setSurname(surnameTextField.getText());
 		customer.setPhoneNumber(phoneNumberTextField.getText());
-		H2InsertStatement insert = new H2InsertStatement("customer",
-															   new String[]{"firstname", "surname", "phonenumber"},
-															   new String[]{"'"+customer.getFirstName()+"'", "'"+
-															   customer.getSurname()+"'", "'"+customer.getPhoneNumber()+"'"});
-		H2Database.executeUpdate(insert);
+		String insertStatement = H2Statement.getInsertStatement("customer",
+				   new String[]{"firstname", "surname", "phonenumber"},
+				   new String[]{"'"+customer.getFirstName()+"'", "'"+
+				   customer.getSurname()+"'", "'"+customer.getPhoneNumber()+"'"});
+		H2Database.executeUpdate(insertStatement);
 		newDialogStage.close();
 		Metacube.rootController.openCustomerTab(customer);
 		Metacube.rootController.updateCustomerList();

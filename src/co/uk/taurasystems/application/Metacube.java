@@ -19,7 +19,6 @@ import javafx.stage.Stage;
 public class Metacube extends Application {
 
 	private static Stage primaryStage;
-	public static Connection database;
 	public static RootController rootController;
 	public static NewDialogController newDialogController;
 
