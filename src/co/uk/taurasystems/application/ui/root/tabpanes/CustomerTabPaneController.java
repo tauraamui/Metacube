@@ -53,7 +53,7 @@ public class CustomerTabPaneController implements Initializable {
 		this.customer = customer;
 	}
 	
-	public void openJobTab(Job job) {
+	private void openJobTab(Job job) {
 		JobTab jobTab = new JobTab(job);
 		jobTabPane.getTabs().add(jobTab);
 		jobTabPane.getSelectionModel().select(jobTab);
