@@ -6,18 +6,21 @@ public class Customer {
 	private String firstName = "Unnamed";
 	private String surname = "Surname";
 	private String phoneNumber = "";
+	private String addressFirstLine = "";
 	
 	public Customer() {}
-	public Customer(long ID, String firstName, String surname, String phoneNumber) {
+	public Customer(long ID, String firstName, String surname, String phoneNumber, String addressFirstLine) {
 		setID(ID);
 		setFirstName(firstName);
 		setSurname(surname);
 		setPhoneNumber(phoneNumber);
+		setAddressFirstLine(addressFirstLine);
 	}
-	public Customer(String firstName, String surname, String phoneNumber) {
+	public Customer(String firstName, String surname, String phoneNumber, String addressFirstLine) {
 		setFirstName(firstName);
 		setSurname(surname);
 		setPhoneNumber(phoneNumber);
+		setAddressFirstLine(addressFirstLine);
 	}
 	
 	public long getID() {
@@ -45,5 +48,11 @@ public class Customer {
 	}
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
+	}
+	public String getAddressFirstLine() {
+		return addressFirstLine;
+	}
+	public void setAddressFirstLine(String addressFirstLine) {
+		this.addressFirstLine = addressFirstLine;
 	}
 }

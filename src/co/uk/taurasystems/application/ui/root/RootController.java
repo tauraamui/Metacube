@@ -55,7 +55,7 @@ public class RootController implements Initializable {
 		updateCustomerList();
 	}
 	
-	public void openCustomerTab(Customer customer) {
+	private void openCustomerTab(Customer customer) {
 		CustomerTab customerTab = new CustomerTab(customer);
 		tabbedPane.getTabs().add(customerTab);
 		tabbedPane.getSelectionModel().select(customerTab);

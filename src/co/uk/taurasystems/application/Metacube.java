@@ -1,9 +1,6 @@
 package co.uk.taurasystems.application;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 
 import co.uk.taurasystems.application.ui.newdialog.NewDialogController;
 import co.uk.taurasystems.application.ui.root.RootController;
@@ -45,7 +42,7 @@ public class Metacube extends Application {
 
 	public static void loadNewDialog() {
 		try {
-			FXMLLoader fxmlLoader = new FXMLLoader(NewDialogController.class.getResource("NewDialog.fxml"));
+			FXMLLoader fxmlLoader = new FXMLLoader(Metacube.class.getResource("\\ui\\newdialog\\NewDialog.fxml"));
 			Parent root = (Parent)fxmlLoader.load();
 			Scene scene = new Scene(root);
 			Stage dialog = new Stage();

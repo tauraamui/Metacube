@@ -20,10 +20,12 @@ public class CustomerController {
 				String firstname = (String)results.getObject("firstname");
 				String surname = (String)results.getObject("surname");
 				String phonenumber = (String)results.getObject("phonenumber");
+				String addressfirstline = (String)results.getObject("addressfirstline");
 				if (firstname == null) firstname = "";
 				if (surname == null) surname = "";
 				if (phonenumber == null) phonenumber = "";
-				customers.add(new Customer(ID, firstname, surname, phonenumber));
+				if (addressfirstline == null) addressfirstline = "";
+				customers.add(new Customer(ID, firstname, surname, phonenumber, addressfirstline));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

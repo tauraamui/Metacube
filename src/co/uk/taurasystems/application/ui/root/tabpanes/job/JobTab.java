@@ -1,30 +1,31 @@
-package co.uk.taurasystems.application.ui.root.tabpanes;
+package co.uk.taurasystems.application.ui.root.tabpanes.job;
 
 import java.io.IOException;
 
 import co.uk.taurasystems.db.models.Customer;
+import co.uk.taurasystems.db.models.Job;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Tab;
 import javafx.scene.layout.AnchorPane;
 
-public class CustomerTab extends Tab {
+public class JobTab extends Tab {
 	
 	private Tab tab;
-	private Customer customer;
+	private Job job;
 
-	public CustomerTab(Customer customer) {
-		this.customer = customer;
-		setText(customer.getFirstName()+" "+customer.getSurname());
+	public JobTab(Job job) {
+		this.job = job;
+		setText("ID: "+job.getID());
 		load();
 	}
 	
 	public void load() {
-		FXMLLoader fxmlLoader = new FXMLLoader(CustomerTabPaneController.class.getResource("CustomerTabPane.fxml"));
+		FXMLLoader fxmlLoader = new FXMLLoader(JobTabPaneController.class.getResource("JobTabPane.fxml"));
 		try {
 			Parent tabContents = (Parent)fxmlLoader.load();
-			CustomerTabPaneController controller = (CustomerTabPaneController)fxmlLoader.getController();
-			controller.setCustomer(customer);
+			JobTabPaneController controller = (JobTabPaneController)fxmlLoader.getController();
+			controller.setJob(job);
 			controller.initialize(fxmlLoader.getLocation(), fxmlLoader.getResources());
 			AnchorPane pane = new AnchorPane();
 			AnchorPane.setTopAnchor(tabContents, 0.0);
@@ -38,7 +39,7 @@ public class CustomerTab extends Tab {
 		}
 	}
 	
-	public Customer getCustomer() {
-		return customer;
+	public Job getJob() {
+		return job;
 	}
 }

@@ -20,16 +20,12 @@ public class NewDialogController implements Initializable {
 	private Stage newDialogStage;
 	
 	@FXML private AnchorPane anchorPane;
-	
 	@FXML private Button okButton;
-	
 	@FXML private Button cancelButton;
-	
 	@FXML private TextField firstNameTextField;
-	
 	@FXML private TextField surnameTextField;
-	
 	@FXML private TextField phoneNumberTextField;
+	@FXML private TextField addressFirstLineTextField;
 	
 	@Override
 	public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
@@ -46,13 +42,14 @@ public class NewDialogController implements Initializable {
 		customer.setFirstName(firstNameTextField.getText());
 		customer.setSurname(surnameTextField.getText());
 		customer.setPhoneNumber(phoneNumberTextField.getText());
+		customer.setAddressFirstLine(addressFirstLineTextField.getText());
 		String insertStatement = H2Statement.getInsertStatement("customer",
-				   new String[]{"firstname", "surname", "phonenumber"},
+				   new String[]{"firstname", "surname", "phonenumber", "addressfirstline"},
 				   new String[]{"'"+customer.getFirstName()+"'", "'"+
-				   customer.getSurname()+"'", "'"+customer.getPhoneNumber()+"'"});
+				   customer.getSurname()+"'", "'"+customer.getPhoneNumber()+"'","'"+customer.getAddressFirstLine()+"'"});
 		H2Database.executeUpdate(insertStatement);
 		newDialogStage.close();
-		Metacube.rootController.openCustomerTab(customer);
+		Metacube.rootController.openCustomerTab(customer, true);
 		Metacube.rootController.updateCustomerList();
 	}
 }
