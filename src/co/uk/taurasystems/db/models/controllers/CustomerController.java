@@ -1,4 +1,4 @@
-package co.uk.taurasystems.db.models;
+package co.uk.taurasystems.db.models.controllers;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -7,6 +7,7 @@ import java.util.Collections;
 import java.util.Comparator;
 
 import co.uk.taurasystems.db.H2Database;
+import co.uk.taurasystems.db.models.Customer;
 
 public class CustomerController {
 

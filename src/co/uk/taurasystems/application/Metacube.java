@@ -3,7 +3,7 @@ package co.uk.taurasystems.application;
 import java.io.IOException;
 
 import co.uk.taurasystems.application.ui.newdialog.NewDialogController;
-import co.uk.taurasystems.application.ui.root.RootController;
+import co.uk.taurasystems.application.ui.tabpanes.root.RootController;
 import co.uk.taurasystems.db.H2Database;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -27,7 +27,7 @@ public class Metacube extends Application {
 
 	public static void loadMainWindow() {
 		try {
-			FXMLLoader fxmlLoader = new FXMLLoader(Metacube.class.getResource("\\ui\\root\\Root.fxml"));
+			FXMLLoader fxmlLoader = new FXMLLoader(Metacube.class.getResource("\\ui\\tabpanes\\root\\Root.fxml"));
 			Parent root = fxmlLoader.load();
 			rootController = (RootController)fxmlLoader.getController();
 			Scene scene = new Scene(root);

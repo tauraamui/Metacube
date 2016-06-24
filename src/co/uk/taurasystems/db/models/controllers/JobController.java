@@ -1,10 +1,11 @@
-package co.uk.taurasystems.db.models;
+package co.uk.taurasystems.db.models.controllers;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 import co.uk.taurasystems.db.H2Database;
+import co.uk.taurasystems.db.models.Job;
 import co.uk.taurasystems.db.models.Job.Priority;
 
 public class JobController {
