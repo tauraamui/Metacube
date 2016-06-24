@@ -1,12 +1,9 @@
 package co.uk.taurasystems.application;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 
 import co.uk.taurasystems.application.ui.newdialog.NewDialogController;
-import co.uk.taurasystems.application.ui.root.RootController;
+import co.uk.taurasystems.application.ui.tabpanes.root.RootController;
 import co.uk.taurasystems.db.H2Database;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -19,7 +16,6 @@ import javafx.stage.Stage;
 public class Metacube extends Application {
 
 	private static Stage primaryStage;
-	public static Connection database;
 	public static RootController rootController;
 	public static NewDialogController newDialogController;
 
@@ -31,7 +27,7 @@ public class Metacube extends Application {
 
 	public static void loadMainWindow() {
 		try {
-			FXMLLoader fxmlLoader = new FXMLLoader(Metacube.class.getResource("\\ui\\root\\Root.fxml"));
+			FXMLLoader fxmlLoader = new FXMLLoader(Metacube.class.getResource("\\ui\\tabpanes\\root\\Root.fxml"));
 			Parent root = fxmlLoader.load();
 			rootController = (RootController)fxmlLoader.getController();
 			Scene scene = new Scene(root);
@@ -46,7 +42,7 @@ public class Metacube extends Application {
 
 	public static void loadNewDialog() {
 		try {
-			FXMLLoader fxmlLoader = new FXMLLoader(NewDialogController.class.getResource("NewDialog.fxml"));
+			FXMLLoader fxmlLoader = new FXMLLoader(Metacube.class.getResource("\\ui\\newdialog\\NewDialog.fxml"));
 			Parent root = (Parent)fxmlLoader.load();
 			Scene scene = new Scene(root);
 			Stage dialog = new Stage();
@@ -63,25 +59,6 @@ public class Metacube extends Application {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}
-
-	public static Connection initDatabaseConnection() {
-		try {
-			Class.forName("org.h2.Driver");
-			String url = "jdbc:h2:~/Metacube";
-			String username = "sa";
-			String password = "849353475893479768347";
-			Connection connection = DriverManager.getConnection(url, username, password);
-			// add application code here
-			return connection;
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return null;
 	}
 
 	public static void main(String[] args) {

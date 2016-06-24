@@ -1,13 +1,13 @@
-package co.uk.taurasystems.application.ui.root;
+package co.uk.taurasystems.application.ui.tabpanes.root;
 
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import co.uk.taurasystems.application.Metacube;
-import co.uk.taurasystems.application.ui.root.tabpanes.CustomerTab;
+import co.uk.taurasystems.application.ui.tabpanes.customer.CustomerTab;
 import co.uk.taurasystems.db.models.Customer;
-import co.uk.taurasystems.db.models.CustomerController;
+import co.uk.taurasystems.db.models.controllers.CustomerController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;

@@ -1,12 +1,11 @@
 package co.uk.taurasystems.application.ui.newdialog;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import co.uk.taurasystems.application.Metacube;
-import co.uk.taurasystems.application.ui.root.RootController;
 import co.uk.taurasystems.db.H2Database;
-import co.uk.taurasystems.db.H2InsertStatement;
 import co.uk.taurasystems.db.H2Statement;
 import co.uk.taurasystems.db.models.Customer;
 import javafx.fxml.FXML;
@@ -21,16 +20,12 @@ public class NewDialogController implements Initializable {
 	private Stage newDialogStage;
 	
 	@FXML private AnchorPane anchorPane;
-	
 	@FXML private Button okButton;
-	
 	@FXML private Button cancelButton;
-	
 	@FXML private TextField firstNameTextField;
-	
 	@FXML private TextField surnameTextField;
-	
 	@FXML private TextField phoneNumberTextField;
+	@FXML private TextField addressFirstLineTextField;
 	
 	@Override
 	public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
@@ -47,13 +42,14 @@ public class NewDialogController implements Initializable {
 		customer.setFirstName(firstNameTextField.getText());
 		customer.setSurname(surnameTextField.getText());
 		customer.setPhoneNumber(phoneNumberTextField.getText());
-		H2InsertStatement insert = new H2InsertStatement(H2Statement.Type.INSERT, "customer",
-															   new String[]{"firstname", "surname", "phonenumber"},
-															   new String[]{"'"+customer.getFirstName()+"'", "'"+
-															   customer.getSurname()+"'", "'"+customer.getPhoneNumber()+"'"});
-		H2Database.executeUpdate(insert);
+		customer.setAddressFirstLine(addressFirstLineTextField.getText());
+		String insertStatement = H2Statement.getInsertStatement("customer",
+				   new String[]{"firstname", "surname", "phonenumber", "addressfirstline"},
+				   new String[]{"'"+customer.getFirstName()+"'", "'"+
+				   customer.getSurname()+"'", "'"+customer.getPhoneNumber()+"'","'"+customer.getAddressFirstLine()+"'"});
+		H2Database.executeUpdate(insertStatement);
 		newDialogStage.close();
-		Metacube.rootController.openCustomerTab(customer);
+		Metacube.rootController.openCustomerTab(customer, true);
 		Metacube.rootController.updateCustomerList();
 	}
 }

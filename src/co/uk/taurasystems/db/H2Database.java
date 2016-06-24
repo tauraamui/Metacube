@@ -66,9 +66,9 @@ public class H2Database {
 		return connection;
 	}
 	
-	public static void executeUpdate(H2Statement statement) {
+	public static void executeUpdate(String updateStatement) {
 		try {
-			connection.createStatement().executeUpdate(statement.getRawString());
+			getConnection().createStatement().executeUpdate(updateStatement);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
