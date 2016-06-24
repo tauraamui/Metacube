@@ -1,48 +1,59 @@
 package co.uk.taurasystems.application.ui.newdialog;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import co.uk.taurasystems.application.Metacube;
+import co.uk.taurasystems.application.ui.root.RootController;
+import co.uk.taurasystems.db.H2Database;
+import co.uk.taurasystems.db.H2InsertStatement;
+import co.uk.taurasystems.db.H2Statement;
+import co.uk.taurasystems.db.models.Customer;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.stage.Modality;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class NewDialogController {
+public class NewDialogController implements Initializable {
 	
-	private Stage dialog = new Stage();
+	private Stage newDialogStage;
 	
-	@FXML
-	private Button cancelButton;
+	@FXML private AnchorPane anchorPane;
 	
-	public NewDialogController() {
-		init();
+	@FXML private Button okButton;
+	
+	@FXML private Button cancelButton;
+	
+	@FXML private TextField firstNameTextField;
+	
+	@FXML private TextField surnameTextField;
+	
+	@FXML private TextField phoneNumberTextField;
+	
+	@Override
+	public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
+		cancelButton.setOnAction(e -> newDialogStage.close());
+		okButton.setOnAction(e -> createCustomer());
 	}
 	
-	private void init() {
-		cancelButton.setOnAction(e -> dialog.close());
+	public void setStage(Stage newDialogStage) {
+		this.newDialogStage = newDialogStage;
 	}
 	
-	public void showWindow() {
-		FXMLLoader newDialogLoader = new FXMLLoader();
-		newDialogLoader.setLocation(getClass().getResource("NewDialog.fxml"));
-		Parent newDialog;
-		try {
-			newDialog = (Parent)newDialogLoader.load();
-		} catch (IOException e) {
-			e.printStackTrace();
-			return;
-		}
-		dialog.initModality(Modality.APPLICATION_MODAL);
-		dialog.setResizable(false);
-        dialog.setTitle("New...");
-        dialog.setScene(new Scene(newDialog));
-        dialog.sizeToScene();
-        dialog.show();
+	private void createCustomer() {
+		Customer customer = new Customer();
+		customer.setFirstName(firstNameTextField.getText());
+		customer.setSurname(surnameTextField.getText());
+		customer.setPhoneNumber(phoneNumberTextField.getText());
+		H2InsertStatement insert = new H2InsertStatement(H2Statement.Type.INSERT, "customer",
+															   new String[]{"firstname", "surname", "phonenumber"},
+															   new String[]{"'"+customer.getFirstName()+"'", "'"+
+															   customer.getSurname()+"'", "'"+customer.getPhoneNumber()+"'"});
+		H2Database.executeUpdate(insert);
+		newDialogStage.close();
+		Metacube.rootController.openCustomerTab(customer);
+		Metacube.rootController.updateCustomerList();
 	}
 }
