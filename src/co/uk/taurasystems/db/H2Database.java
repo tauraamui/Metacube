@@ -41,21 +41,18 @@ public class H2Database {
 	
 	public static Connection initConnection() {
 		if (DriverClassName == null || DriverClassName.isEmpty()) {System.out.println("Driver class name not specified..."); return null;}
-		if (URL == null || URL.isEmpty()) {System.out.println("Driver class name not specified..."); return null;}
+		if (URL == null || URL.isEmpty()) {System.out.println("Database URL not specified..."); return null;}
 		if (Username == null || Username.isEmpty()) {System.out.println("Username not specified..."); return null;}
 		if (Password == null || Password.isEmpty()) {System.out.println("Password not specified..."); return null;}
 		
 		try {
 			Class.forName(DriverClassName);
 			connection = DriverManager.getConnection(URL, Username, Password);
-			// add application code here
 			connected = true;
 			return getConnection();
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;

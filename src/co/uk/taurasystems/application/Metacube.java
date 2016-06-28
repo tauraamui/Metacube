@@ -27,7 +27,7 @@ public class Metacube extends Application {
 
 	public static void loadMainWindow() {
 		try {
-			FXMLLoader fxmlLoader = new FXMLLoader(Metacube.class.getResource("\\ui\\tabpanes\\root\\Root.fxml"));
+			FXMLLoader fxmlLoader = new FXMLLoader(RootController.class.getResource("Root.fxml"));
 			Parent root = fxmlLoader.load();
 			rootController = (RootController)fxmlLoader.getController();
 			Scene scene = new Scene(root);
