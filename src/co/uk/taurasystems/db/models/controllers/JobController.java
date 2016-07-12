@@ -57,11 +57,11 @@ public class JobController {
 
 	public static String getCreationStruct() {
 		String creationStruct = "CREATE TABLE `JOB` (\n" +
-				"\t`ID`\tINTEGER NOT NULL UNIQUE,\n" +
+				"\t`ID`\tINTEGER NOT NULL UNIQUE auto_increment,\n" +
 				"\t`CUSTOMERID`\tINTEGER NOT NULL,\n" +
 				"\t`DATE`\tTEXT NOT NULL,\n" +
 				"\t`TIME`\tTEXT,\n" +
-				"\t`PRORITY`\tINTEGER NOT NULL,\n" +
+				"\t`PRIORITY`\tINTEGER NOT NULL,\n" +
 				"\t`DEVICENAME`\tTEXT,\n" +
 				"\t`BAGORCASE`\tINTEGER NOT NULL,\n" +
 				"\t`DESCRIPTION`\tTEXT,\n" +

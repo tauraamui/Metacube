@@ -45,8 +45,8 @@ public class CustomerController {
 	}
 	
 	public static String getCreationStruct() {
-		String creationStruct = "CREATE TABLE `CUSTOMER` (\n" +
-				"\t`ID`\tINTEGER NOT NULL UNIQUE,\n" +
+		String creationStruct = "CREATE TABLE `CUSTOMER' (\n" +
+				"\t`ID`\tINTEGER NOT NULL UNIQUE auto_increment,\n" +
 				"\t`FIRSTNAME`\tTEXT NOT NULL,\n" +
 				"\t`SURNAME`\tTEXT NOT NULL,\n" +
 				"\t`PHONENUMBER`\tTEXT,\n" +

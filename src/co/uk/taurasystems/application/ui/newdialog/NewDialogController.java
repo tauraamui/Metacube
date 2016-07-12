@@ -44,7 +44,8 @@ public class NewDialogController implements Initializable {
 		customer.setPhoneNumber(phoneNumberTextField.getText());
 		customer.setAddressFirstLine(addressFirstLineTextField.getText());
 		String insertStatement = H2Statement.getInsertStatement("customer",
-				   new String[]{"firstname", "surname", "phonenumber", "addressfirstline"},
+				//TODO: Fix the autoincrement field issue in the SQL structs
+				   new String[]{"ID", "firstname", "surname", "phonenumber", "addressfirstline"},
 				   new String[]{"'"+customer.getFirstName()+"'", "'"+
 				   customer.getSurname()+"'", "'"+customer.getPhoneNumber()+"'","'"+customer.getAddressFirstLine()+"'"});
 		H2Database.executeUpdate(insertStatement);
