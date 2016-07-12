@@ -12,7 +12,7 @@ import co.uk.taurasystems.db.models.Customer;
 public class CustomerController {
 
 	public static ArrayList<Customer> getAllCustomers() {
-		ArrayList<Customer> customers =  null;
+		ArrayList<Customer> customers =  new ArrayList<Customer>();
 		try {
 			ResultSet results = H2Database.getConnection().createStatement().executeQuery("SELECT * FROM customer");
 			customers = new ArrayList<Customer>();
@@ -45,7 +45,14 @@ public class CustomerController {
 	}
 	
 	public static String getCreationStruct() {
-		
-		return null;
+		String creationStruct = "CREATE TABLE `CUSTOMER` (\n" +
+				"\t`ID`\tINTEGER NOT NULL UNIQUE,\n" +
+				"\t`FIRSTNAME`\tTEXT NOT NULL,\n" +
+				"\t`SURNAME`\tTEXT NOT NULL,\n" +
+				"\t`PHONENUMBER`\tTEXT,\n" +
+				"\t`ADDRESSFIRSTLINE`\tTEXT,\n" +
+				"\tPRIMARY KEY(ID)\n" +
+				");";
+		return creationStruct;
 	}
 }

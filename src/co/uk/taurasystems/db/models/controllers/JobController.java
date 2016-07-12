@@ -54,6 +54,23 @@ public class JobController {
 		}
 		return jobs;
 	}
+
+	public static String getCreationStruct() {
+		String creationStruct = "CREATE TABLE `JOB` (\n" +
+				"\t`ID`\tINTEGER NOT NULL UNIQUE,\n" +
+				"\t`CUSTOMERID`\tINTEGER NOT NULL,\n" +
+				"\t`DATE`\tTEXT NOT NULL,\n" +
+				"\t`TIME`\tTEXT,\n" +
+				"\t`PRORITY`\tINTEGER NOT NULL,\n" +
+				"\t`DEVICENAME`\tTEXT,\n" +
+				"\t`BAGORCASE`\tINTEGER NOT NULL,\n" +
+				"\t`DESCRIPTION`\tTEXT,\n" +
+				"\t`PRICE`\tTEXT,\n" +
+				"\tPRIMARY KEY(ID),\n" +
+				"\tFOREIGN KEY(`CUSTOMERID`) REFERENCES CUSTOMER(ID)\n" +
+				");";
+		return creationStruct;
+	}
 	
 	private static Job mapResultSetToJob(ResultSet results) {
 		Job job = null;

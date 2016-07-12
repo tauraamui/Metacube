@@ -79,7 +79,6 @@ public class RootController implements Initializable {
 	
 	public void updateCustomerList() {
 		customerList = CustomerController.sortAlphabetically(CustomerController.getAllCustomers());
-		if (customerList == null) return;
 		customerListItems.clear();
 		for (Customer customer : customerList) {
 			customerListItems.add(customer.getFirstName()+" "+customer.getSurname());

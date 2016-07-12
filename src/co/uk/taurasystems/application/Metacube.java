@@ -5,6 +5,8 @@ import java.io.IOException;
 import co.uk.taurasystems.application.ui.newdialog.NewDialogController;
 import co.uk.taurasystems.application.ui.tabpanes.root.RootController;
 import co.uk.taurasystems.db.H2Database;
+import co.uk.taurasystems.db.models.controllers.CustomerController;
+import co.uk.taurasystems.db.models.controllers.JobController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -42,7 +44,7 @@ public class Metacube extends Application {
 
 	public static void loadNewDialog() {
 		try {
-			FXMLLoader fxmlLoader = new FXMLLoader(Metacube.class.getResource("\\ui\\newdialog\\NewDialog.fxml"));
+			FXMLLoader fxmlLoader = new FXMLLoader(NewDialogController.class.getResource("NewDialog.fxml"));
 			Parent root = (Parent)fxmlLoader.load();
 			Scene scene = new Scene(root);
 			Stage dialog = new Stage();
@@ -61,28 +63,19 @@ public class Metacube extends Application {
 		}
 	}
 
+	public static void setupDatabaseTables() {
+		H2Database.executeUpdate(CustomerController.getCreationStruct());
+		H2Database.executeUpdate(JobController.getCreationStruct());
+	}
+
 	public static void main(String[] args) {
 		H2Database.setDriverClassName("org.h2.Driver");
 		H2Database.setURL("jdbc:h2:~/Metacube");
 		H2Database.setUseraname("sa");
 		H2Database.setPassword("849353475893479768347");
 		H2Database.initConnection();
+		setupDatabaseTables();
 		System.out.println("loaded db... loading UI");
-		/*database = initDatabaseConnection();
-		try {
-			database.createStatement().executeUpdate("INSERT INTO customer(firstname, surname, phonenumber) values('Java', 'Bean', '93480238932')");
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		try {
-			ResultSet results = database.createStatement().executeQuery("SELECT * FROM customer");
-			while (results.next()) {
-				String firstname = (String)results.getObject("FIRSTNAME");
-				System.out.println(firstname);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}*/
 		launch(args);
 	}
 }
