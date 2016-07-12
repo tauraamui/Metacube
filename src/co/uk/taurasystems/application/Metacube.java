@@ -27,7 +27,6 @@ public class Metacube extends Application {
 
 	public static void loadMainWindow() {
 		try {
-			//this is an update test
 			FXMLLoader fxmlLoader = new FXMLLoader(RootController.class.getResource("Root.fxml"));
 			Parent root = fxmlLoader.load();
 			_rootController = (RootController)fxmlLoader.getController();
@@ -68,6 +67,7 @@ public class Metacube extends Application {
 		H2Database.setUseraname("sa");
 		H2Database.setPassword("849353475893479768347");
 		H2Database.initConnection();
+		System.out.println("loaded db... loading UI");
 		/*database = initDatabaseConnection();
 		try {
 			database.createStatement().executeUpdate("INSERT INTO customer(firstname, surname, phonenumber) values('Java', 'Bean', '93480238932')");
