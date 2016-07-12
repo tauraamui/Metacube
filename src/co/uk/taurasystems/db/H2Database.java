@@ -6,48 +6,48 @@ import java.sql.SQLException;
 
 public class H2Database {
 
-	private static String DriverClassName;
-	private static String URL;
-	private static String Username;
-	private static String Password;
+	private static String _DriverClassName;
+	private static String _URL;
+	private static String _Username;
+	private static String _Password;
 	
 	private static Connection connection;
 	private static boolean connected = false;
 	
 	public static String getDriverClassName() {
-		return DriverClassName;
+		return _DriverClassName;
 	}
 	public static void setDriverClassName(String driverClassName) {
-		DriverClassName = driverClassName;
+		_DriverClassName = driverClassName;
 	}
 	public static String getURL() {
-		return URL;
+		return _URL;
 	}
-	public static void setURL(String uRL) {
-		URL = uRL;
+	public static void setURL(String URL) {
+		_URL = URL;
 	}
 	public static String getUseraname() {
-		return Username;
+		return _Username;
 	}
 	public static void setUseraname(String useraname) {
-		Username = useraname;
+		_Username = useraname;
 	}
 	public static String getPassword() {
-		return Password;
+		return _Password;
 	}
 	public static void setPassword(String password) {
-		Password = password;
+		_Password = password;
 	}
 	
 	public static Connection initConnection() {
-		if (DriverClassName == null || DriverClassName.isEmpty()) {System.out.println("Driver class name not specified..."); return null;}
-		if (URL == null || URL.isEmpty()) {System.out.println("Database URL not specified..."); return null;}
-		if (Username == null || Username.isEmpty()) {System.out.println("Username not specified..."); return null;}
-		if (Password == null || Password.isEmpty()) {System.out.println("Password not specified..."); return null;}
+		if (_DriverClassName == null || _DriverClassName.isEmpty()) {System.out.println("Driver class name not specified..."); return null;}
+		if (_URL == null || _URL.isEmpty()) {System.out.println("Database URL not specified..."); return null;}
+		if (_Username == null || _Username.isEmpty()) {System.out.println("Username not specified..."); return null;}
+		if (_Password == null || _Password.isEmpty()) {System.out.println("Password not specified..."); return null;}
 		
 		try {
-			Class.forName(DriverClassName);
-			connection = DriverManager.getConnection(URL, Username, Password);
+			Class.forName(_DriverClassName);
+			connection = DriverManager.getConnection(_URL, _Username, _Password);
 			connected = true;
 			return getConnection();
 		} catch (ClassNotFoundException e) {

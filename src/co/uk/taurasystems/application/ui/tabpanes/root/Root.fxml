@@ -83,7 +83,7 @@
                               <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
-                              <TabPane fx:id="tabbedPane" prefHeight="376.0" prefWidth="417.0" tabClosingPolicy="UNAVAILABLE" />
+                              <TabPane fx:id="customerTabPane" prefHeight="376.0" prefWidth="417.0" tabClosingPolicy="UNAVAILABLE" />
                            </children>
                         </GridPane>
                      </children>

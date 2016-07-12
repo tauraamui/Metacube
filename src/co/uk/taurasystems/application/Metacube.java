@@ -15,26 +15,27 @@ import javafx.stage.Stage;
 
 public class Metacube extends Application {
 
-	private static Stage primaryStage;
-	public static RootController rootController;
-	public static NewDialogController newDialogController;
+	private static Stage _primaryStage;
+	public static RootController _rootController;
+	public static NewDialogController _newDialogController;
 
 	@Override
 	public void start(Stage primaryStage) {
-		Metacube.primaryStage = primaryStage;
+		Metacube._primaryStage = primaryStage;
 		loadMainWindow();
 	}
 
 	public static void loadMainWindow() {
 		try {
+			//this is an update test
 			FXMLLoader fxmlLoader = new FXMLLoader(RootController.class.getResource("Root.fxml"));
 			Parent root = fxmlLoader.load();
-			rootController = (RootController)fxmlLoader.getController();
+			_rootController = (RootController)fxmlLoader.getController();
 			Scene scene = new Scene(root);
-			primaryStage.setTitle("Metacube");
-			primaryStage.setScene(scene);
-			primaryStage.setMaximized(true);
-			primaryStage.show();
+			_primaryStage.setTitle("Metacube");
+			_primaryStage.setScene(scene);
+			_primaryStage.setMaximized(true);
+			_primaryStage.show();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -52,7 +53,7 @@ public class Metacube extends Application {
 			dialog.setTitle("New...");
 			dialog.sizeToScene();
 			//give this dialog instance to the NewDialogController
-			newDialogController = (NewDialogController)fxmlLoader.getController();
+			_newDialogController = (NewDialogController)fxmlLoader.getController();
 			((NewDialogController)fxmlLoader.getController()).setStage(dialog);
 			dialog.show();
 			dialog.centerOnScreen();
@@ -71,7 +72,6 @@ public class Metacube extends Application {
 		try {
 			database.createStatement().executeUpdate("INSERT INTO customer(firstname, surname, phonenumber) values('Java', 'Bean', '93480238932')");
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		try {
@@ -81,7 +81,6 @@ public class Metacube extends Application {
 				System.out.println(firstname);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}*/
 		launch(args);

@@ -43,4 +43,9 @@ public class CustomerController {
 		});
 		return customers;
 	}
+	
+	public static String getCreationStruct() {
+		
+		return null;
+	}
 }

@@ -18,6 +18,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.SplitPane;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
+import javafx.scene.control.TabPane.TabClosingPolicy;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 
@@ -38,7 +39,7 @@ public class RootController implements Initializable {
 	@FXML private MenuItem menuAboutButton;
 	//------MENU BUTTONS-----
 	
-	@FXML private TabPane tabbedPane;
+	@FXML private TabPane customerTabPane;
 	@FXML private ListView<String> customerListView;
 	@FXML private SplitPane splitPane;
 	final ObservableList<String> customerListItems = FXCollections.observableArrayList();
@@ -52,22 +53,23 @@ public class RootController implements Initializable {
 		menuCloseButton.setOnAction(e -> System.exit(0));
 		menuNewButton.setOnAction(e -> Metacube.loadNewDialog());
 		customerListView.setOnMouseClicked(e -> onListClick(e));
+		customerTabPane.setTabClosingPolicy(TabClosingPolicy.ALL_TABS);
 		updateCustomerList();
 	}
 	
 	private void openCustomerTab(Customer customer) {
 		CustomerTab customerTab = new CustomerTab(customer);
-		tabbedPane.getTabs().add(customerTab);
-		tabbedPane.getSelectionModel().select(customerTab);
+		customerTabPane.getTabs().add(customerTab);
+		customerTabPane.getSelectionModel().select(customerTab);
 	}
 	
 	public void openCustomerTab(Customer customer, boolean checkForAlreadyOpen) {
 		if (!checkForAlreadyOpen) {openCustomerTab(customer); return;}
-		ObservableList<Tab> existingTabs = tabbedPane.getTabs();
+		ObservableList<Tab> existingTabs = customerTabPane.getTabs();
 		for (Tab currentTab : existingTabs) {
 			if (currentTab instanceof CustomerTab) {
 				if (((CustomerTab) currentTab).getCustomer().getID() == customer.getID()) {
-					tabbedPane.getSelectionModel().select(currentTab);
+					customerTabPane.getSelectionModel().select(currentTab);
 					return;
 				}
 			}

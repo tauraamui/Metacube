@@ -15,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
+import javafx.scene.control.TabPane.TabClosingPolicy;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
@@ -42,6 +43,7 @@ public class CustomerTabPaneController implements Initializable {
 		addressFirstLineField.setText(customer.getAddressFirstLine());
 		jobListView.setItems(jobListItems);
 		jobListView.setOnMouseClicked(e -> onListClick(e));
+		jobTabPane.setTabClosingPolicy(TabClosingPolicy.ALL_TABS);
 		updateJobList();
 	}
 	
@@ -84,7 +86,7 @@ public class CustomerTabPaneController implements Initializable {
 			if (e.getClickCount() >= 2) {
 				int selectionIndex = jobListView.getSelectionModel().getSelectedIndex();
 				if (selectionIndex < 0 || selectionIndex > jobList.size()) return;
-				openJobTab(jobList.get(selectionIndex));
+				openJobTab(jobList.get(selectionIndex), true);
 			}
 		}
 	}

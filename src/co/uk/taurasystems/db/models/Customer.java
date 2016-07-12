@@ -1,6 +1,6 @@
 package co.uk.taurasystems.db.models;
 
-public class Customer {
+public class Customer extends Model {
 
 	private long ID = -1;
 	private String firstName = "Unnamed";

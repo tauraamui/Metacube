@@ -49,7 +49,7 @@ public class NewDialogController implements Initializable {
 				   customer.getSurname()+"'", "'"+customer.getPhoneNumber()+"'","'"+customer.getAddressFirstLine()+"'"});
 		H2Database.executeUpdate(insertStatement);
 		newDialogStage.close();
-		Metacube.rootController.openCustomerTab(customer, true);
-		Metacube.rootController.updateCustomerList();
+		Metacube._rootController.openCustomerTab(customer, true);
+		Metacube._rootController.updateCustomerList();
 	}
 }

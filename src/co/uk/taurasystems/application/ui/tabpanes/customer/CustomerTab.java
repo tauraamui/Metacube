@@ -6,6 +6,7 @@ import co.uk.taurasystems.db.models.Customer;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane.TabClosingPolicy;
 import javafx.scene.layout.AnchorPane;
 
 public class CustomerTab extends Tab {
@@ -26,11 +27,11 @@ public class CustomerTab extends Tab {
 			controller.setCustomer(customer);
 			controller.initialize(fxmlLoader.getLocation(), fxmlLoader.getResources());
 			AnchorPane pane = new AnchorPane();
+			pane.getChildren().addAll(tabContents);
 			AnchorPane.setTopAnchor(tabContents, 0.0);
 			AnchorPane.setRightAnchor(tabContents, 0.0);
 			AnchorPane.setLeftAnchor(tabContents, 0.0);
 			AnchorPane.setBottomAnchor(tabContents, 0.0);
-			pane.getChildren().addAll(tabContents);
 			setContent(pane);
 		} catch (IOException e) {
 			e.printStackTrace();

@@ -78,7 +78,6 @@ public class JobController {
 			job.setDescription(description);
 			job.setPrice(price);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return job;
