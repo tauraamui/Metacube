@@ -3,7 +3,7 @@ package co.uk.taurasystems.db.models;
 public class Customer extends Model {
 
 	private long ID = -1;
-	private String firstName = "Unnamed";
+	private String firstName = "First name";
 	private String surname = "Surname";
 	private String phoneNumber = "";
 	private String addressFirstLine = "";

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-import co.uk.taurasystems.db.H2Database;
+import co.uk.taurasystems.db.Database;
 import co.uk.taurasystems.db.models.Customer;
 
 public class CustomerController {
@@ -14,7 +14,7 @@ public class CustomerController {
 	public static ArrayList<Customer> getAllCustomers() {
 		ArrayList<Customer> customers =  new ArrayList<Customer>();
 		try {
-			ResultSet results = H2Database.getConnection().createStatement().executeQuery("SELECT * FROM customer");
+			ResultSet results = Database.getConnection().createStatement().executeQuery("SELECT * FROM customer");
 			customers = new ArrayList<Customer>();
 			while (results.next()) {
 				long ID = (long)results.getObject("ID");
@@ -45,14 +45,7 @@ public class CustomerController {
 	}
 	
 	public static String getCreationStruct() {
-		String creationStruct = "CREATE TABLE `CUSTOMER' (\n" +
-				"\t`ID`\tINTEGER NOT NULL UNIQUE auto_increment,\n" +
-				"\t`FIRSTNAME`\tTEXT NOT NULL,\n" +
-				"\t`SURNAME`\tTEXT NOT NULL,\n" +
-				"\t`PHONENUMBER`\tTEXT,\n" +
-				"\t`ADDRESSFIRSTLINE`\tTEXT,\n" +
-				"\tPRIMARY KEY(ID)\n" +
-				");";
+		String creationStruct = "CREATE TABLE CUSTOMER(ID SERIAL PRIMARY KEY, FIRSTNAME VARCHAR(50), SURNAME VARCHAR(50), PHONENUMBER VARCHAR(100), ADDRESSFIRSTLINE VARCHAR(255))";
 		return creationStruct;
 	}
 }

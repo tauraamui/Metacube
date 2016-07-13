@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import co.uk.taurasystems.application.ui.newdialog.NewDialogController;
 import co.uk.taurasystems.application.ui.tabpanes.root.RootController;
-import co.uk.taurasystems.db.H2Database;
+import co.uk.taurasystems.db.Database;
 import co.uk.taurasystems.db.models.controllers.CustomerController;
 import co.uk.taurasystems.db.models.controllers.JobController;
 import javafx.application.Application;
@@ -64,16 +64,16 @@ public class Metacube extends Application {
 	}
 
 	public static void setupDatabaseTables() {
-		H2Database.executeUpdate(CustomerController.getCreationStruct());
-		H2Database.executeUpdate(JobController.getCreationStruct());
+		Database.executeUpdate(CustomerController.getCreationStruct());
+		//Database.executeUpdate(JobController.getCreationStruct());
 	}
 
 	public static void main(String[] args) {
-		H2Database.setDriverClassName("org.h2.Driver");
-		H2Database.setURL("jdbc:h2:~/Metacube");
-		H2Database.setUseraname("sa");
-		H2Database.setPassword("849353475893479768347");
-		H2Database.initConnection();
+		Database.setDriverClassName("org.postgresql.Driver");
+		Database.setURL("jdbc:postgresql://localhost/Metacube");
+		Database.setUseraname("metacube_master");
+		Database.setPassword("testing");
+		Database.initConnection();
 		setupDatabaseTables();
 		System.out.println("loaded db... loading UI");
 		launch(args);

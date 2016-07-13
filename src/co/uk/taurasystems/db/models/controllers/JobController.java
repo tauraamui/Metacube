@@ -4,16 +4,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import co.uk.taurasystems.db.H2Database;
+import co.uk.taurasystems.db.Database;
 import co.uk.taurasystems.db.models.Job;
-import co.uk.taurasystems.db.models.Job.Priority;
 
 public class JobController {
 
 	public static ArrayList<Job> getAllJobs() {
 		ArrayList<Job> jobs =  null;
 		try {
-			ResultSet results = H2Database.getConnection().createStatement().executeQuery("SELECT * FROM job");
+			ResultSet results = Database.getConnection().createStatement().executeQuery("SELECT * FROM job");
 			jobs = new ArrayList<Job>();
 			while (results.next()) {
 				Job job = mapResultSetToJob(results);
@@ -28,7 +27,7 @@ public class JobController {
 	public static ArrayList<Job> getJobsByCustomerID(long customerIDToFind) {
 		ArrayList<Job> jobs = null;
 		try {
-			ResultSet results = H2Database.getConnection().createStatement().executeQuery("SELECT * FROM job where customerid="+String.valueOf(customerIDToFind));
+			ResultSet results = Database.getConnection().createStatement().executeQuery("SELECT * FROM job where customerid="+String.valueOf(customerIDToFind));
 			jobs = new ArrayList<Job>();
 			while (results.next()) {
 				Job job = mapResultSetToJob(results);
@@ -43,7 +42,7 @@ public class JobController {
 	public static ArrayList<Job> getJobByID(long jobIDToFind) {
 		ArrayList<Job> jobs = null;
 		try {
-			ResultSet results = H2Database.getConnection().createStatement().executeQuery("SELECT * FROM job WHERE ID = "+String.valueOf(jobIDToFind));
+			ResultSet results = Database.getConnection().createStatement().executeQuery("SELECT * FROM job WHERE ID = "+String.valueOf(jobIDToFind));
 			jobs = new ArrayList<Job>();
 			while (results.next()) {
 				Job job = mapResultSetToJob(results);
@@ -57,17 +56,15 @@ public class JobController {
 
 	public static String getCreationStruct() {
 		String creationStruct = "CREATE TABLE `JOB` (\n" +
-				"\t`ID`\tINTEGER NOT NULL UNIQUE auto_increment,\n" +
-				"\t`CUSTOMERID`\tINTEGER NOT NULL,\n" +
-				"\t`DATE`\tTEXT NOT NULL,\n" +
-				"\t`TIME`\tTEXT,\n" +
-				"\t`PRIORITY`\tINTEGER NOT NULL,\n" +
-				"\t`DEVICENAME`\tTEXT,\n" +
-				"\t`BAGORCASE`\tINTEGER NOT NULL,\n" +
-				"\t`DESCRIPTION`\tTEXT,\n" +
-				"\t`PRICE`\tTEXT,\n" +
-				"\tPRIMARY KEY(ID),\n" +
-				"\tFOREIGN KEY(`CUSTOMERID`) REFERENCES CUSTOMER(ID)\n" +
+				"`ID` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,\n" +
+				"`CUSTOMERID`INTEGER NOT NULL,\n" +
+				"`DATE`VARCHAR(200) NOT NULL,\n" +
+				"`TIME`VARCHAR(200),\n" +
+				"`PRIORITY`INTEGER NOT NULL,\n" +
+				"`DEVICENAME`VARCHAR(200),\n" +
+				"`BAGORCASE`INTEGER NOT NULL,\n" +
+				"`DESCRIPTION`VARCHAR(200),\n" +
+				"`PRICE`VARCHAR(200),\n" +
 				");";
 		return creationStruct;
 	}
