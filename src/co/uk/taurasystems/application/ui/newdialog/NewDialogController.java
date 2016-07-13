@@ -1,6 +1,8 @@
 package co.uk.taurasystems.application.ui.newdialog;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.ResourceBundle;
 
 import co.uk.taurasystems.application.Metacube;
@@ -12,6 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class NewDialogController implements Initializable {
@@ -30,6 +33,8 @@ public class NewDialogController implements Initializable {
 	public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
 		cancelButton.setOnAction(e -> newDialogStage.close());
 		okButton.setOnAction(e -> createCustomer());
+		firstNameTextField.setOnKeyTyped(e -> firstNameTextField.setStyle(""));
+		surnameTextField.setOnKeyTyped(e -> surnameTextField.setStyle(""));
 	}
 	
 	public void setStage(Stage newDialogStage) {
@@ -37,18 +42,32 @@ public class NewDialogController implements Initializable {
 	}
 	
 	private void createCustomer() {
-		Customer customer = new Customer();
-		customer.setFirstName(firstNameTextField.getText());
-		customer.setSurname(surnameTextField.getText());
-		customer.setPhoneNumber(phoneNumberTextField.getText());
-		customer.setAddressFirstLine(addressFirstLineTextField.getText());
-		String insertStatement = Statement.getInsertStatement("customer",
-				   new String[]{"firstname", "surname", "phonenumber", "addressfirstline"},
-				   new String[]{"'"+customer.getFirstName()+"'", "'"+
-				   customer.getSurname()+"'", "'"+customer.getPhoneNumber()+"'","'"+customer.getAddressFirstLine()+"'"});
-		Database.executeUpdate(insertStatement);
-		newDialogStage.close();
-		Metacube._rootController.openCustomerTab(customer, true);
-		Metacube._rootController.updateCustomerList();
+		if (validateFieldContents()) {
+			Customer customer = new Customer();
+			customer.setFirstName(firstNameTextField.getText());
+			customer.setSurname(surnameTextField.getText());
+			customer.setPhoneNumber(phoneNumberTextField.getText());
+			customer.setAddressFirstLine(addressFirstLineTextField.getText());
+			String insertStatement = Statement.getInsertStatement("customer",
+					new String[]{"firstname", "surname", "phonenumber", "addressfirstline"},
+					new String[]{"'"+customer.getFirstName()+"'","'"+customer.getSurname()+"'","'"+customer.getPhoneNumber()+"'","'"+customer.getAddressFirstLine()+"'"});
+			Database.executeUpdate(insertStatement);
+			newDialogStage.close();
+			Metacube._rootController.openCustomerTab(customer, true);
+			Metacube._rootController.updateCustomerList();
+		}
+	}
+
+	private boolean validateFieldContents() {
+		boolean noBlankFields = true;
+		if (firstNameTextField.getText().isEmpty()) {
+			firstNameTextField.setStyle("-fx-prompt-text-fill: rgba(255, 0, 0, 1)");
+			noBlankFields = false;
+		}
+		if (surnameTextField.getText().isEmpty()) {
+			surnameTextField.setStyle("-fx-prompt-text-fill: rgba(255, 0, 0, 1)");
+			noBlankFields = false;
+		}
+		return noBlankFields;
 	}
 }

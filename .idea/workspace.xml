@@ -7,17 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="95611aaf-e1b0-48a5-aef3-d8fe43fe5274" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Metacube/co/uk/taurasystems/application/Metacube.class" afterPath="$PROJECT_DIR$/out/production/Metacube/co/uk/taurasystems/application/Metacube.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Metacube/co/uk/taurasystems/application/ui/newdialog/NewDialogController.class" afterPath="$PROJECT_DIR$/out/production/Metacube/co/uk/taurasystems/application/ui/newdialog/NewDialogController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Metacube/co/uk/taurasystems/db/models/controllers/CustomerController.class" afterPath="$PROJECT_DIR$/out/production/Metacube/co/uk/taurasystems/db/models/controllers/CustomerController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Metacube/co/uk/taurasystems/db/models/controllers/JobController.class" afterPath="$PROJECT_DIR$/out/production/Metacube/co/uk/taurasystems/db/models/controllers/JobController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/co/uk/taurasystems/application/Metacube.java" afterPath="$PROJECT_DIR$/src/co/uk/taurasystems/application/Metacube.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/co/uk/taurasystems/application/ui/newdialog/NewDialogController.java" afterPath="$PROJECT_DIR$/src/co/uk/taurasystems/application/ui/newdialog/NewDialogController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/co/uk/taurasystems/db/Database.java" afterPath="$PROJECT_DIR$/src/co/uk/taurasystems/db/Database.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/co/uk/taurasystems/db/Statement.java" afterPath="$PROJECT_DIR$/src/co/uk/taurasystems/db/Statement.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/co/uk/taurasystems/db/models/controllers/CustomerController.java" afterPath="$PROJECT_DIR$/src/co/uk/taurasystems/db/models/controllers/CustomerController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/co/uk/taurasystems/db/models/controllers/JobController.java" afterPath="$PROJECT_DIR$/src/co/uk/taurasystems/db/models/controllers/JobController.java" />
     </list>
     <ignored path="Metacube.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -45,8 +36,8 @@
       <file leaf-file-name="Metacube.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/co/uk/taurasystems/application/Metacube.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="548">
-              <caret line="66" column="58" selection-start-line="66" selection-start-column="58" selection-end-line="66" selection-end-column="58" />
+            <state relative-caret-position="38">
+              <caret line="36" column="42" selection-start-line="36" selection-start-column="42" selection-end-line="36" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -65,10 +56,23 @@
       <file leaf-file-name="NewDialogController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/co/uk/taurasystems/application/ui/newdialog/NewDialogController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="45" column="91" selection-start-line="45" selection-start-column="91" selection-end-line="45" selection-end-column="91" />
+            <state relative-caret-position="361">
+              <caret line="47" column="60" selection-start-line="47" selection-start-column="60" selection-end-line="47" selection-end-column="60" />
               <folding />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NewDialog.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/co/uk/taurasystems/application/ui/newdialog/NewDialog.fxml">
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+          <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+            <state />
           </provider>
         </entry>
       </file>
@@ -190,7 +194,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/postgresql-9.4.1208.jar!/" />
+    <property name="last_opened_file_path" value="$USER_HOME$/AppData/Local/SceneBuilder/SceneBuilder.exe" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Font" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="project.structure.last.edited" value="Artifacts" />
@@ -510,7 +514,14 @@
       <option name="project" value="LOCAL" />
       <updated>1468415149053</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="enabled foreign key between customer and job tables">
+      <created>1468420851619</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1468420851619</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers>
       <GitHub shared="false" url="https://github.com">
         <option name="assignedIssuesOnly" value="false" />
@@ -588,7 +599,8 @@
     <MESSAGE value="added database table creation structs" />
     <MESSAGE value="added todo" />
     <MESSAGE value="changed from using H2 to Postgresql" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed from using H2 to Postgresql" />
+    <MESSAGE value="enabled foreign key between customer and job tables" />
+    <option name="LAST_COMMIT_MESSAGE" value="enabled foreign key between customer and job tables" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -847,16 +859,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/co/uk/taurasystems/application/ui/newdialog/NewDialog.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/co/uk/taurasystems/application/ui/tabpanes/job/JobTab.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
@@ -925,14 +927,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/co/uk/taurasystems/application/Metacube.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="548">
-          <caret line="66" column="58" selection-start-line="66" selection-start-column="58" selection-end-line="66" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/co/uk/taurasystems/db/models/controllers/JobController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="489">
@@ -975,10 +969,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/co/uk/taurasystems/application/Metacube.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="36" column="42" selection-start-line="36" selection-start-column="42" selection-end-line="36" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/co/uk/taurasystems/application/ui/newdialog/NewDialog.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/co/uk/taurasystems/application/ui/newdialog/NewDialogController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="45" column="91" selection-start-line="45" selection-start-column="91" selection-end-line="45" selection-end-column="91" />
+        <state relative-caret-position="361">
+          <caret line="47" column="60" selection-start-line="47" selection-start-column="60" selection-end-line="47" selection-end-column="60" />
           <folding />
         </state>
       </provider>
