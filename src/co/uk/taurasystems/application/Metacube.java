@@ -65,7 +65,7 @@ public class Metacube extends Application {
 
 	public static void setupDatabaseTables() {
 		Database.executeUpdate(CustomerController.getCreationStruct());
-		//Database.executeUpdate(JobController.getCreationStruct());
+		Database.executeUpdate(JobController.getCreationStruct());
 	}
 
 	public static void main(String[] args) {

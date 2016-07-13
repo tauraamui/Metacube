@@ -7,25 +7,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="95611aaf-e1b0-48a5-aef3-d8fe43fe5274" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/Metacube_jar.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/postgresql_9_4_1208.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/h2_1_4_192.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/h2-1.4.192.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Metacube/co/uk/taurasystems/db/H2Database.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Metacube/co/uk/taurasystems/db/H2Statement.class" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/co/uk/taurasystems/db/H2Database.java" afterPath="$PROJECT_DIR$/src/co/uk/taurasystems/db/Database.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/co/uk/taurasystems/db/H2Statement.java" afterPath="$PROJECT_DIR$/src/co/uk/taurasystems/db/Statement.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Metacube/co/uk/taurasystems/application/Metacube.class" afterPath="$PROJECT_DIR$/out/production/Metacube/co/uk/taurasystems/application/Metacube.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Metacube/co/uk/taurasystems/application/ui/newdialog/NewDialogController.class" afterPath="$PROJECT_DIR$/out/production/Metacube/co/uk/taurasystems/application/ui/newdialog/NewDialogController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Metacube/co/uk/taurasystems/db/models/Customer.class" afterPath="$PROJECT_DIR$/out/production/Metacube/co/uk/taurasystems/db/models/Customer.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Metacube/co/uk/taurasystems/db/models/controllers/CustomerController.class" afterPath="$PROJECT_DIR$/out/production/Metacube/co/uk/taurasystems/db/models/controllers/CustomerController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Metacube/co/uk/taurasystems/db/models/controllers/JobController.class" afterPath="$PROJECT_DIR$/out/production/Metacube/co/uk/taurasystems/db/models/controllers/JobController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Metacube.iml" afterPath="$PROJECT_DIR$/Metacube.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/co/uk/taurasystems/application/Metacube.java" afterPath="$PROJECT_DIR$/src/co/uk/taurasystems/application/Metacube.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/co/uk/taurasystems/application/ui/newdialog/NewDialogController.java" afterPath="$PROJECT_DIR$/src/co/uk/taurasystems/application/ui/newdialog/NewDialogController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/co/uk/taurasystems/db/models/Customer.java" afterPath="$PROJECT_DIR$/src/co/uk/taurasystems/db/models/Customer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/co/uk/taurasystems/db/Database.java" afterPath="$PROJECT_DIR$/src/co/uk/taurasystems/db/Database.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/co/uk/taurasystems/db/Statement.java" afterPath="$PROJECT_DIR$/src/co/uk/taurasystems/db/Statement.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/co/uk/taurasystems/db/models/controllers/CustomerController.java" afterPath="$PROJECT_DIR$/src/co/uk/taurasystems/db/models/controllers/CustomerController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/co/uk/taurasystems/db/models/controllers/JobController.java" afterPath="$PROJECT_DIR$/src/co/uk/taurasystems/db/models/controllers/JobController.java" />
     </list>
@@ -52,11 +42,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Metacube.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Metacube.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/co/uk/taurasystems/application/Metacube.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="633">
-              <caret line="71" column="61" selection-start-line="71" selection-start-column="61" selection-end-line="71" selection-end-column="61" />
+            <state relative-caret-position="548">
+              <caret line="66" column="58" selection-start-line="66" selection-start-column="58" selection-end-line="66" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -65,8 +55,28 @@
       <file leaf-file-name="Database.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/co/uk/taurasystems/db/Database.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="327">
-              <caret line="45" column="117" selection-start-line="45" selection-start-column="117" selection-end-line="45" selection-end-column="117" />
+            <state relative-caret-position="480">
+              <caret line="54" column="34" selection-start-line="54" selection-start-column="34" selection-end-line="54" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NewDialogController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/co/uk/taurasystems/application/ui/newdialog/NewDialogController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="527">
+              <caret line="45" column="91" selection-start-line="45" selection-start-column="91" selection-end-line="45" selection-end-column="91" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Statement.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/co/uk/taurasystems/db/Statement.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="42" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -75,8 +85,8 @@
       <file leaf-file-name="CustomerController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/co/uk/taurasystems/db/models/controllers/CustomerController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="628">
-              <caret line="47" column="65" selection-start-line="47" selection-start-column="65" selection-end-line="47" selection-end-column="65" />
+            <state relative-caret-position="548">
+              <caret line="42" column="11" selection-start-line="42" selection-start-column="11" selection-end-line="42" selection-end-column="11" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -87,8 +97,8 @@
       <file leaf-file-name="JobController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/co/uk/taurasystems/db/models/controllers/JobController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="472">
-              <caret line="68" column="30" selection-start-line="68" selection-start-column="30" selection-end-line="68" selection-end-column="30" />
+            <state relative-caret-position="489">
+              <caret line="63" column="54" selection-start-line="63" selection-start-column="54" selection-end-line="63" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -130,12 +140,13 @@
         <option value="$PROJECT_DIR$/src/co/uk/taurasystems/application/ui/tabpanes/RootContainer.java" />
         <option value="$PROJECT_DIR$/src/co/uk/taurasystems/application/ui/tabpanes/RootContainer.fxml" />
         <option value="$PROJECT_DIR$/src/co/uk/taurasystems/application/ui/tabpanes/root/RootController.java" />
-        <option value="$PROJECT_DIR$/src/co/uk/taurasystems/application/ui/newdialog/NewDialogController.java" />
-        <option value="$PROJECT_DIR$/src/co/uk/taurasystems/db/models/controllers/JobController.java" />
         <option value="$PROJECT_DIR$/src/co/uk/taurasystems/db/models/Customer.java" />
+        <option value="$PROJECT_DIR$/src/co/uk/taurasystems/application/Metacube.java" />
+        <option value="$PROJECT_DIR$/src/co/uk/taurasystems/db/models/controllers/JobController.java" />
         <option value="$PROJECT_DIR$/src/co/uk/taurasystems/db/Database.java" />
         <option value="$PROJECT_DIR$/src/co/uk/taurasystems/db/models/controllers/CustomerController.java" />
-        <option value="$PROJECT_DIR$/src/co/uk/taurasystems/application/Metacube.java" />
+        <option value="$PROJECT_DIR$/src/co/uk/taurasystems/db/Statement.java" />
+        <option value="$PROJECT_DIR$/src/co/uk/taurasystems/application/ui/newdialog/NewDialogController.java" />
       </list>
     </option>
   </component>
@@ -485,7 +496,21 @@
       <option name="project" value="LOCAL" />
       <updated>1468361414958</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="changed from using H2 to Postgresql">
+      <created>1468414500885</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1468414500885</updated>
+    </task>
+    <task id="LOCAL-00007" summary="changed from using H2 to Postgresql">
+      <created>1468415149053</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1468415149053</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers>
       <GitHub shared="false" url="https://github.com">
         <option name="assignedIssuesOnly" value="false" />
@@ -526,7 +551,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32690248" sideWeight="0.5032051" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32683983" sideWeight="0.49679488" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32583067" sideWeight="0.49679488" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -562,7 +587,8 @@
     <MESSAGE value="making changes" />
     <MESSAGE value="added database table creation structs" />
     <MESSAGE value="added todo" />
-    <option name="LAST_COMMIT_MESSAGE" value="added todo" />
+    <MESSAGE value="changed from using H2 to Postgresql" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed from using H2 to Postgresql" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -883,22 +909,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/co/uk/taurasystems/db/Statement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="62" selection-start-line="4" selection-start-column="62" selection-end-line="4" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/co/uk/taurasystems/application/ui/newdialog/NewDialogController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="43" column="64" selection-start-line="43" selection-start-column="64" selection-end-line="43" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/co/uk/taurasystems/db/models/Job.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -915,10 +925,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/co/uk/taurasystems/application/Metacube.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="548">
+          <caret line="66" column="58" selection-start-line="66" selection-start-column="58" selection-end-line="66" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/co/uk/taurasystems/db/models/controllers/JobController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="472">
-          <caret line="68" column="30" selection-start-line="68" selection-start-column="30" selection-end-line="68" selection-end-column="30" />
+        <state relative-caret-position="489">
+          <caret line="63" column="54" selection-start-line="63" selection-start-column="54" selection-end-line="63" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/co/uk/taurasystems/db/Database.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="54" column="34" selection-start-line="54" selection-start-column="34" selection-end-line="54" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/co/uk/taurasystems/db/models/controllers/CustomerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="548">
+          <caret line="42" column="11" selection-start-line="42" selection-start-column="11" selection-end-line="42" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/co/uk/taurasystems/db/Statement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="42" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
           <folding />
         </state>
       </provider>
@@ -931,28 +975,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/co/uk/taurasystems/db/models/controllers/CustomerController.java">
+    <entry file="file://$PROJECT_DIR$/src/co/uk/taurasystems/application/ui/newdialog/NewDialogController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="628">
-          <caret line="47" column="65" selection-start-line="47" selection-start-column="65" selection-end-line="47" selection-end-column="65" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/co/uk/taurasystems/db/Database.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="45" column="117" selection-start-line="45" selection-start-column="117" selection-end-line="45" selection-end-column="117" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/co/uk/taurasystems/application/Metacube.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="633">
-          <caret line="71" column="61" selection-start-line="71" selection-start-column="61" selection-end-line="71" selection-end-column="61" />
+        <state relative-caret-position="527">
+          <caret line="45" column="91" selection-start-line="45" selection-start-column="91" selection-end-line="45" selection-end-column="91" />
           <folding />
         </state>
       </provider>

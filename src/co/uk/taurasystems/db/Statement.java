@@ -3,6 +3,7 @@ package co.uk.taurasystems.db;
 public class Statement {
 
 	public static String getInsertStatement(String tableName, String[] columnNames, String[] values) {
+		if (columnNames.length != values.length) {System.out.println("Number of columns does not match number of values..."); return null;}
 		String statement = "INSERT INTO ";
 		statement += tableName + "(";
 		for (int i = 0; i < columnNames.length; i++) {

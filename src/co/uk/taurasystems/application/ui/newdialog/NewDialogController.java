@@ -43,8 +43,7 @@ public class NewDialogController implements Initializable {
 		customer.setPhoneNumber(phoneNumberTextField.getText());
 		customer.setAddressFirstLine(addressFirstLineTextField.getText());
 		String insertStatement = Statement.getInsertStatement("customer",
-				//TODO: Fix the autoincrement field issue in the SQL structs
-				   new String[]{"ID", "firstname", "surname", "phonenumber", "addressfirstline"},
+				   new String[]{"firstname", "surname", "phonenumber", "addressfirstline"},
 				   new String[]{"'"+customer.getFirstName()+"'", "'"+
 				   customer.getSurname()+"'", "'"+customer.getPhoneNumber()+"'","'"+customer.getAddressFirstLine()+"'"});
 		Database.executeUpdate(insertStatement);

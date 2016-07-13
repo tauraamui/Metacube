@@ -45,7 +45,13 @@ public class CustomerController {
 	}
 	
 	public static String getCreationStruct() {
-		String creationStruct = "CREATE TABLE CUSTOMER(ID SERIAL PRIMARY KEY, FIRSTNAME VARCHAR(50), SURNAME VARCHAR(50), PHONENUMBER VARCHAR(100), ADDRESSFIRSTLINE VARCHAR(255))";
+		String creationStruct = "CREATE TABLE CUSTOMER" +
+								"(ID BIGSERIAL NOT NULL PRIMARY KEY," +
+								"FIRSTNAME VARCHAR(50)," +
+								"SURNAME VARCHAR(50)," +
+								"PHONENUMBER VARCHAR(50)," +
+								"ADDRESSFIRSTLINE VARCHAR(100)" +
+								");";
 		return creationStruct;
 	}
 }

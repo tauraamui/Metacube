@@ -55,17 +55,17 @@ public class JobController {
 	}
 
 	public static String getCreationStruct() {
-		String creationStruct = "CREATE TABLE `JOB` (\n" +
-				"`ID` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,\n" +
-				"`CUSTOMERID`INTEGER NOT NULL,\n" +
-				"`DATE`VARCHAR(200) NOT NULL,\n" +
-				"`TIME`VARCHAR(200),\n" +
-				"`PRIORITY`INTEGER NOT NULL,\n" +
-				"`DEVICENAME`VARCHAR(200),\n" +
-				"`BAGORCASE`INTEGER NOT NULL,\n" +
-				"`DESCRIPTION`VARCHAR(200),\n" +
-				"`PRICE`VARCHAR(200),\n" +
-				");";
+		String creationStruct = "CREATE TABLE JOB" +
+								"(ID BIGSERIAL NOT NULL," +
+								"CUSTOMERID BIGINT REFERENCES CUSTOMER(ID) ON DELETE CASCADE," +
+								"DATE VARCHAR(50)," +
+								"TIME VARCHAR(50)," +
+								"DEVICENAME VARCHAR(100)," +
+								"BAGORCASE INTEGER," +
+								"DESCRIPTION VARCHAR(600)," +
+								"PRICE VARCHAR(100)," +
+								"PRIMARY KEY (ID, CUSTOMERID)" +
+								");";
 		return creationStruct;
 	}
 	

@@ -44,7 +44,7 @@ public class Database {
 		if (_URL == null || _URL.isEmpty()) {System.out.println("Database URL not specified..."); return null;}
 		if (_Username == null || _Username.isEmpty()) {System.out.println("Username not specified..."); return null;}
 		if (_Password == null || _Password.isEmpty()) {System.out.println("Password not specified..."); return null;}
-		
+
 		try {
 			Class.forName(_DriverClassName);
 			connection = DriverManager.getConnection(_URL, _Username, _Password);
@@ -67,6 +67,7 @@ public class Database {
 		try {
 			getConnection().createStatement().executeUpdate(updateStatement);
 		} catch (SQLException e) {
+			System.out.println("This query couldn't run: "+updateStatement);
 			e.printStackTrace();
 		}
 	}
