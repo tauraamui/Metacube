@@ -93,6 +93,9 @@ public class RootController implements Initializable {
 				if (selectionIndex < 0 || selectionIndex > customerList.size()) return;
 				openCustomerTab(customerList.get(selectionIndex), true);
 			}
+		} else if (e.getButton().equals(MouseButton.SECONDARY)) {
+			int selectionIndex = customerListView.getSelectionModel().getSelectedIndex();
+			System.out.println(selectionIndex);
 		}
 	}
 }

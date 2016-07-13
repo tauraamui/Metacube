@@ -9,6 +9,9 @@ import java.util.Comparator;
 import co.uk.taurasystems.db.Database;
 import co.uk.taurasystems.db.models.Customer;
 
+import javax.xml.crypto.Data;
+import javax.xml.transform.Result;
+
 public class CustomerController {
 
 	public static ArrayList<Customer> getAllCustomers() {
@@ -32,6 +35,26 @@ public class CustomerController {
 			e.printStackTrace();
 		}
 		return customers;
+	}
+
+	public static Customer getLatestOf(Customer customer) {
+		System.out.println("getting latest of Customer: "+customer.getFirstName() + " " + customer.getSurname());
+		try {
+			ResultSet result = Database.getConnection().createStatement().executeQuery("SELECT * FROM CUSTOMER WHERE ID = "+String.valueOf(customer.getID()));
+			result.next();
+			String firstname = (String)result.getObject("firstname");
+			String surname = (String)result.getObject("surname");
+			String phonenumber = (String)result.getObject("phonenumber");
+			String addressFirstLine = (String)result.getObject("addressfirstline");
+			if (firstname != null) customer.setFirstName(firstname);
+			if (surname != null) customer.setSurname(surname);
+			if (phonenumber != null) customer.setPhoneNumber(phonenumber);
+			if (addressFirstLine != null) customer.setAddressFirstLine(addressFirstLine);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+		return customer;
 	}
 	
 	public static ArrayList<Customer> sortAlphabetically(ArrayList<Customer> customers) {

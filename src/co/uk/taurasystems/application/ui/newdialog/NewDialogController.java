@@ -9,6 +9,7 @@ import co.uk.taurasystems.application.Metacube;
 import co.uk.taurasystems.db.Database;
 import co.uk.taurasystems.db.Statement;
 import co.uk.taurasystems.db.models.Customer;
+import co.uk.taurasystems.db.models.controllers.CustomerController;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -52,9 +53,12 @@ public class NewDialogController implements Initializable {
 					new String[]{"firstname", "surname", "phonenumber", "addressfirstline"},
 					new String[]{"'"+customer.getFirstName()+"'","'"+customer.getSurname()+"'","'"+customer.getPhoneNumber()+"'","'"+customer.getAddressFirstLine()+"'"});
 			Database.executeUpdate(insertStatement);
-			newDialogStage.close();
-			Metacube._rootController.openCustomerTab(customer, true);
-			Metacube._rootController.updateCustomerList();
+			customer = CustomerController.getLatestOf(customer);
+			if (customer != null) {
+				newDialogStage.close();
+				Metacube._rootController.openCustomerTab(customer, true);
+				Metacube._rootController.updateCustomerList();
+			}
 		}
 	}
 
