@@ -41,15 +41,16 @@ public class CustomerController {
 		System.out.println("getting latest of Customer: "+customer.getFirstName() + " " + customer.getSurname());
 		try {
 			ResultSet result = Database.getConnection().createStatement().executeQuery("SELECT * FROM CUSTOMER WHERE ID = "+String.valueOf(customer.getID()));
-			result.next();
-			String firstname = (String)result.getObject("firstname");
-			String surname = (String)result.getObject("surname");
-			String phonenumber = (String)result.getObject("phonenumber");
-			String addressFirstLine = (String)result.getObject("addressfirstline");
-			if (firstname != null) customer.setFirstName(firstname);
-			if (surname != null) customer.setSurname(surname);
-			if (phonenumber != null) customer.setPhoneNumber(phonenumber);
-			if (addressFirstLine != null) customer.setAddressFirstLine(addressFirstLine);
+			while (result.next()) {
+				String firstname = (String)result.getObject("firstname");
+				String surname = (String)result.getObject("surname");
+				String phonenumber = (String)result.getObject("phonenumber");
+				String addressFirstLine = (String)result.getObject("addressfirstline");
+				if (firstname != null) customer.setFirstName(firstname);
+				if (surname != null) customer.setSurname(surname);
+				if (phonenumber != null) customer.setPhoneNumber(phonenumber);
+				if (addressFirstLine != null) customer.setAddressFirstLine(addressFirstLine);
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return null;
