@@ -36,6 +36,8 @@ public class NewDialogController implements Initializable {
 		okButton.setOnAction(e -> createCustomer());
 		firstNameTextField.setOnKeyTyped(e -> firstNameTextField.setStyle(""));
 		surnameTextField.setOnKeyTyped(e -> surnameTextField.setStyle(""));
+		firstNameTextField.setStyle("-fx-prompt-text-fill: rgba(0, 0, 0, 0)");
+		surnameTextField.setStyle("-fx-prompt-text-fill: rgba(0, 0, 0, 0)");
 	}
 	
 	public void setStage(Stage newDialogStage) {

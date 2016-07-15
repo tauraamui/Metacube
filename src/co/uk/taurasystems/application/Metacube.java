@@ -70,9 +70,10 @@ public class Metacube extends Application {
 
 	public static void main(String[] args) {
 		Database.setDriverClassName("org.postgresql.Driver");
-		Database.setURL("jdbc:postgresql://localhost/Metacube");
-		Database.setUseraname("metacube_master");
-		Database.setPassword("testing");
+		Database.setURL("jdbc:postgresql://store.taurasystems.co.uk/rtpvmply");
+		Database.setUseraname("rtpvmply");
+		//I change the following DB password everytime I upload my source to GitHub. So fuck you ;)
+		Database.setPassword("0dtV_NESDs-tFudlbwJWCtBcQmGJoiL8");
 		Database.initConnection();
 		setupDatabaseTables();
 		System.out.println("loaded db... loading UI");
