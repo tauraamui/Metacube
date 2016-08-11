@@ -14,7 +14,6 @@ import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-
 public class Metacube extends Application {
 
 	private static Stage _primaryStage;
@@ -73,7 +72,7 @@ public class Metacube extends Application {
 		Database.setURL("jdbc:postgresql://store.taurasystems.co.uk/rtpvmply");
 		Database.setUseraname("rtpvmply");
 		//I change the following DB password everytime I upload my source to GitHub. So fuck you ;)
-		Database.setPassword("0dtV_NESDs-tFudlbwJWCtBcQmGJoiL8");
+		Database.setPassword("TpqQ8mK-0XWQhAMjaa6IGBYHWV0pYCXu");
 		Database.initConnection();
 		setupDatabaseTables();
 		System.out.println("loaded db... loading UI");
