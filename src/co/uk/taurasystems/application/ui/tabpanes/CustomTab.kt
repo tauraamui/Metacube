@@ -1,7 +1,10 @@
 package co.uk.taurasystems.application.ui.tabpanes
 
-/**
- * Created by tauraaamui on 11/08/2016.
- */
-class CustomTab {
+import javafx.scene.control.Tab
+
+class CustomTab : Tab() {
+
+    var unsaved = false
+
+    open fun load() {}
 }

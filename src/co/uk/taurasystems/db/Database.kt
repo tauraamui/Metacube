@@ -58,9 +58,24 @@ object Database {
         try {
             getConnection()!!.createStatement().executeUpdate(updateStatement)
         } catch (e: SQLException) {
-            println("This query couldn't run: " + updateStatement)
-            e.printStackTrace()
-        }
+            var tableNameWhichAlreadyExists = ""
+            val splitExceptionMessage = e.toString().split(" ")
 
+            for (i in splitExceptionMessage.indices) {
+                if (splitExceptionMessage[i].toLowerCase().equals("relation")) {
+                    if (i + 1 < splitExceptionMessage.size-1) {
+                        tableNameWhichAlreadyExists = splitExceptionMessage[i+1]
+                    }
+                    break
+                }
+            }
+
+            if (e.toString().contains("already exists") && tableNameWhichAlreadyExists.isNotBlank()) {
+                println("This query couldn't run: " + updateStatement)
+                println("because table $tableNameWhichAlreadyExists already exists")
+            } else {
+                e.printStackTrace()
+            }
+        }
     }
 }

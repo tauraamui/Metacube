@@ -14,13 +14,10 @@ import javafx.scene.input.MouseEvent
 import java.net.URL
 import java.util.*
 
-/**
- * Created by tauraaamui on 11/08/2016.
- */
-class CustomerTabController {
+class CustomerTabPaneController {
 
-    private var customer: Customer? = null
-    private var jobList: ArrayList<Job>? = null
+    private var customer: Customer = Customer()
+    private var jobList: ArrayList<Job> = ArrayList<Job>()
     internal val jobListItems = FXCollections.observableArrayList<String>()
 
     @FXML var firstNameField: TextField? = null
@@ -28,18 +25,16 @@ class CustomerTabController {
     @FXML var phoneNumberField: TextField? = null
     @FXML var addressFirstLineField: TextField? = null
     @FXML var jobTabPane: TabPane? = null
-
     @FXML var jobListView: ListView<String>? = null
 
-    fun initialize() {
-        if (customer == null) return
-        firstNameField!!.text = customer!!.firstName
-        surnameField!!.text = customer!!.surname
-        phoneNumberField!!.text = customer!!.phoneNumber
-        addressFirstLineField!!.text = customer!!.addressFirstLine
-        jobListView!!.items = jobListItems
-        jobListView!!.setOnMouseClicked { e -> onListClick(e) }
-        jobTabPane!!.tabClosingPolicy = TabPane.TabClosingPolicy.ALL_TABS
+    fun initialize(url: URL, resouceBundle: ResourceBundle?) {
+        firstNameField?.text = customer.firstName
+        surnameField?.text = customer.surname
+        phoneNumberField?.text = customer.phoneNumber
+        addressFirstLineField?.text = customer.addressFirstLine
+        jobListView?.items = jobListItems
+        jobListView?.setOnMouseClicked({ e -> onListClick(e) })
+        jobTabPane?.tabClosingPolicy = TabPane.TabClosingPolicy.ALL_TABS
         updateJobList()
     }
 
@@ -49,8 +44,8 @@ class CustomerTabController {
 
     private fun openJobTab(job: Job) {
         val jobTab = JobTab(job)
-        jobTabPane!!.tabs.add(jobTab)
-        jobTabPane!!.selectionModel.select(jobTab)
+        jobTabPane?.tabs?.add(jobTab)
+        jobTabPane?.selectionModel?.select(jobTab)
     }
 
     fun openJobTab(job: Job, checkForAlreadyOpen: Boolean) {
@@ -71,10 +66,9 @@ class CustomerTabController {
     }
 
     fun updateJobList() {
-        jobList = JobController.getJobsByCustomerID(customer!!.ID)
-        if (jobList == null) return
+        jobList = JobController.getJobsByCustomerID(customer.ID)
         jobListItems.clear()
-        for (job in jobList!!) {
+        for (job in jobList) {
             jobListItems.add(job.ID.toString())
         }
     }
