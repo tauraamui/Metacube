@@ -2,10 +2,10 @@ package co.uk.taurasystems.db
 
 object Statement {
 
-    @JvmStatic fun getInsertStatement(tableName: String, columnNames: Array<String>, values: Array<String>): String? {
+    @JvmStatic fun getInsertStatement(tableName: String, columnNames: Array<String>, values: Array<String>): String {
         if (columnNames.size != values.size) {
             println("Number of columns does not match number of values...")
-            return null
+            return ""
         }
         var statement = "INSERT INTO "
         statement += tableName + "("
